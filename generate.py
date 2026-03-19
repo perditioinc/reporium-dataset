@@ -370,7 +370,7 @@ async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
                 "primary_language": r.get("primaryLanguage"),
                 "github_url": f"https://github.com/{nwo}",
                 "parent_stars": r.get("parentStars"),
-                "parent_forks": None,
+                "parent_forks": r.get("parentForks"),
                 "your_last_push_at": r.get("pushedAt"),
                 "updated_at": r.get("updatedAt"),
             })
