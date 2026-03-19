@@ -6,73 +6,72 @@ import pytest
 
 
 @pytest.fixture
-def sample_index() -> dict:
-    """A minimal realistic index.json payload."""
+def sample_stats() -> dict:
+    """A minimal /library stats payload."""
     return {
-        "meta": {
-            "total": 805,
-            "last_updated": "2026-03-17T05:01:30+00:00",
-            "version": "1.0.0",
-        },
-        "languages": {"Python": 400, "TypeScript": 200, "Go": 100},
-        "categories": {"llm": 300, "rag": 100, "agents": 80},
+        "total_repos": 818,
+        "total_forks": 808,
+        "total_non_forks": 10,
+        "languages": {"Python": 314, "TypeScript": 112, "Go": 37},
+        "top_tags": [],
+        "last_updated": "2026-03-17T05:01:30+00:00",
     }
 
 
 @pytest.fixture
-def sample_top_starred() -> list:
-    """A minimal top_starred.json payload."""
+def sample_repos() -> list:
+    """A minimal /repos payload — mix of personal and forked repos."""
     return [
         {
-            "nameWithOwner": "owner/alpha",
-            "stars": 5000,
-            "primaryLanguage": "Python",
-            "description": "Best LLM framework",
+            "name": "reporium",
+            "owner": "perditioinc",
+            "description": "The reporium platform",
+            "is_fork": False,
+            "forked_from": None,
+            "primary_language": "Python",
+            "github_url": "https://github.com/perditioinc/reporium",
+            "parent_stars": None,
+            "parent_forks": None,
+            "your_last_push_at": "2026-03-10T00:00:00Z",
+            "updated_at": "2026-03-10T00:00:00Z",
         },
         {
-            "nameWithOwner": "owner/beta",
-            "stars": 3000,
-            "primaryLanguage": "TypeScript",
-            "description": "Another great tool",
-        },
-    ]
-
-
-@pytest.fixture
-def sample_all_repos() -> list:
-    """A minimal full repos payload — mix of personal and forked repos."""
-    return [
-        {
-            "nameWithOwner": "owner/repo-b",
-            "name": "repo-b",
-            "stars": 2000,
-            "primaryLanguage": "Go",
-            "description": "Fast inference engine",
-            "isFork": False,
-            "pushedAt": "2026-03-01T00:00:00Z",
-            "parentRepo": None,
-            "parentStars": None,
+            "name": "reporium-api",
+            "owner": "perditioinc",
+            "description": "Backend API for reporium",
+            "is_fork": False,
+            "forked_from": None,
+            "primary_language": "Python",
+            "github_url": "https://github.com/perditioinc/reporium-api",
+            "parent_stars": None,
+            "parent_forks": None,
+            "your_last_push_at": "2026-03-08T00:00:00Z",
+            "updated_at": "2026-03-08T00:00:00Z",
         },
         {
-            "nameWithOwner": "owner/repo-a",
-            "name": "repo-a",
-            "stars": 8000,
-            "primaryLanguage": "Python",
-            "description": "Top RAG library",
-            "isFork": False,
-            "pushedAt": "2026-03-10T00:00:00Z",
-            "parentRepo": None,
-            "parentStars": None,
+            "name": "llm-framework",
+            "owner": "perditioinc",
+            "description": "Great LLM framework for building agents",
+            "is_fork": True,
+            "forked_from": "upstream/llm-framework",
+            "primary_language": "Python",
+            "github_url": "https://github.com/perditioinc/llm-framework",
+            "parent_stars": 15000,
+            "parent_forks": 2000,
+            "your_last_push_at": "2026-03-15T00:00:00Z",
+            "updated_at": "2026-03-15T00:00:00Z",
         },
         {
-            "nameWithOwner": "owner/forked-llm",
-            "name": "forked-llm",
-            "stars": 0,
-            "primaryLanguage": "Python",
-            "description": "Great LLM framework",
-            "isFork": True,
-            "pushedAt": "2026-03-15T00:00:00Z",
-            "parentRepo": "upstream/llm-framework",
-            "parentStars": 15000,
+            "name": "rag-toolkit",
+            "owner": "perditioinc",
+            "description": "RAG toolkit",
+            "is_fork": True,
+            "forked_from": "bigco/rag-toolkit",
+            "primary_language": "TypeScript",
+            "github_url": "https://github.com/perditioinc/rag-toolkit",
+            "parent_stars": 8000,
+            "parent_forks": 1200,
+            "your_last_push_at": "2026-03-12T00:00:00Z",
+            "updated_at": "2026-03-12T00:00:00Z",
         },
     ]

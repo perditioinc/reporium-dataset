@@ -1,4 +1,4 @@
-"""Generate README.md from live reporium-db data files."""
+"""Generate README.md from reporium-api data."""
 
 from __future__ import annotations
 
@@ -18,29 +18,67 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BASE_RAW_URL = "https://raw.githubusercontent.com/perditioinc/reporium-db/main/data"
+REPORIUM_API_URL = os.getenv("REPORIUM_API_URL", "")
 TIMEOUT = 15
-FORK_TABLE_LIMIT = 100  # cap forked-repo table to avoid README cut-off
+FORK_TABLE_LIMIT = 100
 
 
-async def _fetch_json(url: str, token: str) -> Optional[dict[str, Any] | list]:
-    """Fetch a JSON file from a raw GitHub URL.
+# ── API fetching ───────────────────────────────────────────────────────────────
 
-    Returns None on any error (graceful degradation).
-    """
-    headers = {"Authorization": f"Bearer {token}"} if token else {}
+
+async def _api_get(
+    client: httpx.AsyncClient,
+    api_url: str,
+    path: str,
+    **params: Any,
+) -> Optional[Any]:
+    """GET a single reporium-api endpoint. Returns parsed JSON or None on error."""
     try:
-        async with httpx.AsyncClient(timeout=TIMEOUT) as client:
-            resp = await client.get(url, headers=headers)
-            resp.raise_for_status()
-            return resp.json()
+        resp = await client.get(f"{api_url}{path}", params=params)
+        resp.raise_for_status()
+        return resp.json()
     except Exception as exc:  # noqa: BLE001
-        logger.warning("Could not fetch %s: %s", url, exc)
+        logger.warning("API %s failed: %s", path, exc)
         return None
 
 
+async def _fetch_all_repos(api_url: str) -> Optional[list[dict]]:
+    """Paginate through /repos?sort=stars to get all repos. Returns None on failure."""
+    if not api_url:
+        return None
+    all_repos: list[dict] = []
+    page = 1
+    async with httpx.AsyncClient(timeout=TIMEOUT) as client:
+        while True:
+            data = await _api_get(client, api_url, "/repos", sort="stars", limit=200, page=page)
+            if data is None:
+                return None if not all_repos else all_repos
+            batch = data.get("repos", [])
+            if not batch:
+                break
+            all_repos.extend(batch)
+            if len(batch) < 200:
+                break
+            page += 1
+    return all_repos
+
+
+async def _fetch_stats(api_url: str) -> Optional[dict]:
+    """Fetch summary stats from /library. Returns None on failure."""
+    if not api_url:
+        return None
+    async with httpx.AsyncClient(timeout=TIMEOUT) as client:
+        data = await _api_get(client, api_url, "/library", limit=1)
+        if data:
+            return data.get("stats")
+    return None
+
+
+# ── Formatting helpers ─────────────────────────────────────────────────────────
+
+
 def _freshness_label(last_updated: Optional[str]) -> str:
-    """Return a human-readable freshness label for the dataset."""
+    """Return a human-readable freshness label for a dataset timestamp."""
     if not last_updated:
         return "Update time unknown"
     try:
@@ -56,145 +94,163 @@ def _freshness_label(last_updated: Optional[str]) -> str:
         return "Update time unknown"
 
 
-def _top_stars_table(top_starred: list[dict]) -> str:
-    """Format the top-starred repos as a markdown table."""
-    if not top_starred:
+def _top_stars_table(repos: list[dict]) -> str:
+    """Top 10 forked repos by upstream star count."""
+    forks = [r for r in repos if r.get("is_fork") and r.get("parent_stars")]
+    top = sorted(forks, key=lambda r: r.get("parent_stars") or 0, reverse=True)[:10]
+    if not top:
         return "_No data available_"
-    rows = ["| Repo | Stars | Language |", "|------|-------|----------|"]
-    for repo in top_starred[:10]:
-        name = repo.get("nameWithOwner", "")
-        stars = f"{repo.get('stars', 0):,}"
-        lang = repo.get("primaryLanguage") or "—"
-        url = f"https://github.com/{name}"
-        rows.append(f"| [{name}]({url}) | {stars} | {lang} |")
+    rows = ["| Fork | Upstream Stars | Language |", "|------|---------------:|----------|"]
+    for repo in top:
+        owner = repo.get("owner", "")
+        name = repo.get("name", "")
+        full_name = f"{owner}/{name}"
+        stars = f"{repo.get('parent_stars', 0):,}"
+        lang = repo.get("primary_language") or "—"
+        url = repo.get("github_url") or f"https://github.com/{full_name}"
+        rows.append(f"| [{full_name}]({url}) | {stars} | {lang} |")
     return "\n".join(rows)
 
 
 def _lang_list(languages: dict[str, int]) -> str:
-    """Format top 10 languages as a markdown list."""
+    """Top 10 languages as a markdown bullet list."""
     items = list(languages.items())[:10]
     return "\n".join(f"- **{lang}**: {count:,} repos" for lang, count in items)
 
 
 def _personal_repos_table(repos: list[dict]) -> str:
-    """Table of personal (non-fork) repos sorted by stars."""
+    """Table of personal (non-fork) repos."""
     if not repos:
         return "_No personal repos found_"
-    sorted_repos = sorted(repos, key=lambda r: r.get("stars", 0), reverse=True)
     rows = [
-        "| Repo | Description | Stars | Language | Last Active |",
-        "|------|-------------|------:|----------|-------------|",
+        "| Repo | Description | Language | Last Active |",
+        "|------|-------------|----------|-------------|",
     ]
-    for repo in sorted_repos:
-        name = repo.get("nameWithOwner", "")
-        short = name.split("/", 1)[-1]
-        stars = f"{repo.get('stars', 0):,}"
-        lang = repo.get("primaryLanguage") or "—"
-        desc = (repo.get("description") or "—").replace("|", "-")
-        pushed = (repo.get("pushedAt") or "")[:10] or "—"
-        url = f"https://github.com/{name}"
-        rows.append(f"| [{short}]({url}) | {desc} | {stars} | {lang} | {pushed} |")
+    for repo in repos:
+        owner = repo.get("owner", "")
+        name = repo.get("name", "")
+        full_name = f"{owner}/{name}"
+        lang = repo.get("primary_language") or "—"
+        desc = (repo.get("description") or "—").replace("|", "-")[:80]
+        pushed = (repo.get("your_last_push_at") or repo.get("updated_at") or "")[:10] or "—"
+        url = repo.get("github_url") or f"https://github.com/{full_name}"
+        rows.append(f"| [{full_name}]({url}) | {desc} | {lang} | {pushed} |")
     return "\n".join(rows)
 
 
+def _fork_display(owner: str, name: str, max_len: int = 35) -> str:
+    """Return owner/name truncated to max_len chars."""
+    full = f"{owner}/{name}"
+    if len(full) <= max_len:
+        return full
+    return full[: max_len - 1] + "…"
+
+
 def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str:
-    """Table of forked repos, sorted by upstream stars (or pushedAt), capped at limit."""
+    """Table of forked repos sorted by upstream stars, capped at limit.
+
+    Columns: Fork (owner/name truncated) | Forked From (upstream owner) |
+             Stars | Forks | Language | Description
+    """
     if not repos:
         return "_No forked repos found_"
 
-    has_parent_stars = any(r.get("parentStars") for r in repos)
-    if has_parent_stars:
-        sorted_repos = sorted(repos, key=lambda r: r.get("parentStars") or 0, reverse=True)
-    else:
-        sorted_repos = sorted(repos, key=lambda r: r.get("pushedAt") or "", reverse=True)
-
+    sorted_repos = sorted(repos, key=lambda r: r.get("parent_stars") or 0, reverse=True)
     shown = sorted_repos[:limit]
+
     rows = [
         "| Fork | Forked From | Stars | Forks | Language | Description |",
         "|------|------------|------:|------:|----------|-------------|",
     ]
     for repo in shown:
-        name = repo.get("nameWithOwner", "")
-        short = name.split("/", 1)[-1]
-        lang = repo.get("primaryLanguage") or "—"
-        raw_desc = (repo.get("description") or "—").replace("|", "-")
-        desc = raw_desc[:80] + ("…" if len(raw_desc) > 80 else "")
-        fork_url = f"https://github.com/{name}"
-        forks = f"{repo.get('forks', 0):,}"
+        owner = repo.get("owner", "")
+        name = repo.get("name", "")
+        display = _fork_display(owner, name)
+        url = repo.get("github_url") or f"https://github.com/{owner}/{name}"
+        fork_cell = f"[{display}]({url})"
 
-        parent = repo.get("parentRepo")
-        parent_stars = repo.get("parentStars")
-        if parent:
-            owner = parent.split("/")[0]
-            owner_url = f"https://github.com/{owner}"
-            forked_from_cell = f"[{owner}]({owner_url})"
-            stars_cell = f"{parent_stars:,}" if parent_stars else "—"
+        forked_from = repo.get("forked_from") or ""
+        if forked_from:
+            upstream_owner = forked_from.split("/")[0]
+            forked_from_cell = f"[{upstream_owner}](https://github.com/{upstream_owner})"
         else:
             forked_from_cell = "—"
-            stars_cell = "—"
 
-        rows.append(f"| [{short}]({fork_url}) | {forked_from_cell} | {stars_cell} | {forks} | {lang} | {desc} |")
+        parent_stars = repo.get("parent_stars")
+        stars_cell = f"{parent_stars:,}" if parent_stars else "—"
+
+        parent_forks = repo.get("parent_forks")
+        forks_cell = f"{parent_forks:,}" if parent_forks is not None else "—"
+
+        lang = repo.get("primary_language") or "—"
+        raw_desc = (repo.get("description") or "—").replace("|", "-")
+        desc = raw_desc[:70] + ("…" if len(raw_desc) > 70 else "")
+
+        rows.append(
+            f"| {fork_cell} | {forked_from_cell} | {stars_cell} | {forks_cell} | {lang} | {desc} |"
+        )
     return "\n".join(rows)
 
 
+# ── README builder ─────────────────────────────────────────────────────────────
+
+
 def build_readme(
-    index: Optional[dict],
-    recent: Optional[list],
-    top_starred: Optional[list],
-    all_repos: Optional[list] = None,
+    stats: Optional[dict],
+    repos: Optional[list],
 ) -> str:
-    """Build README.md content from fetched data with graceful degradation."""
-    if index is None:
-        meta: dict = {}
-        languages: dict = {}
-        degraded = True
-    else:
-        meta = index.get("meta", {})
-        languages = index.get("languages", {})\
+    """Build README.md content from reporium-api data with graceful degradation.
 
-        degraded = False
+    Args:
+        stats: Dict from /library stats endpoint (total_repos, languages, etc.) or None.
+        repos: List of repo dicts from /repos endpoint or None.
 
-    total = meta.get("total", 0)
-    last_updated = meta.get("last_updated")
+    Returns:
+        Markdown string for README.md.
+    """
+    degraded = stats is None
+
+    total = (stats or {}).get("total_repos", 0)
+    languages: dict = (stats or {}).get("languages", {})
+    last_updated = (stats or {}).get("last_updated")
     freshness = _freshness_label(last_updated)
 
-    stars_table = _top_stars_table(top_starred or [])
-    lang_section = _lang_list(languages) if languages else "_No language data available_"
-
-    if all_repos is None:
+    if repos is None:
         personal_section = "_Personal repos data unavailable_"
         forked_section = "_Forked repos data unavailable_"
         personal_count = 0
         forked_count = 0
         forked_note = ""
+        top_stars = "_No data available_"
     else:
-        personal = [r for r in all_repos if not r.get("isFork")]
-        forked = [r for r in all_repos if r.get("isFork")]
+        personal = [r for r in repos if not r.get("is_fork")]
+        forked = [r for r in repos if r.get("is_fork")]
         personal_count = len(personal)
         forked_count = len(forked)
         personal_section = _personal_repos_table(personal)
         forked_section = _forked_repos_table(forked)
+        top_stars = _top_stars_table(repos)
         shown = min(FORK_TABLE_LIMIT, forked_count)
         if forked_count > 0:
-            sort_note = "by upstream stars" if any(r.get("parentStars") for r in forked) else "by last activity"
+            sort_note = "by upstream stars" if any(r.get("parent_stars") for r in forked) else "by last activity"
             forked_note = (
                 f"\n> Showing top {shown:,} of {forked_count:,} forked repos ({sort_note})."
-                f" Full dataset: [`data/full/repos_0000.json`]"
-                f"(https://github.com/perditioinc/reporium-db/blob/main/data/full/repos_0000.json)\n"
+                f" Full dataset available via [reporium-api](https://github.com/perditioinc/reporium-api).\n"
             )
         else:
             forked_note = ""
 
+    lang_section = _lang_list(languages) if languages else "_No language data available_"
+
     degraded_note = (
-        "\n> **Note:** Source data is temporarily unavailable. Showing cached info.\n"
+        "\n> **Note:** reporium-api is unavailable. Data will appear once the API is deployed.\n"
         if degraded
         else ""
     )
 
     return f"""# Reporium Dataset
 
-> Open dataset of AI development tool repositories tracked on GitHub — updated nightly.
-> Powering [reporium.com](https://reporium.com).
+> Open dataset of AI development tool repositories — updated nightly from [reporium-api](https://github.com/perditioinc/reporium-api).
 {degraded_note}
 [![Updated nightly](https://img.shields.io/badge/updated-nightly-blue)](https://github.com/perditioinc/reporium-db)
 [![Repos tracked](https://img.shields.io/badge/repos-{total:,}-green)](https://reporium.com)
@@ -210,9 +266,6 @@ def build_readme(
 | AI categories enriched | 0 _(ingestion pipeline not yet running)_ |
 | Last updated | {freshness} |
 
-Data is fetched nightly from GitHub via GraphQL and written to partitioned JSON files
-in [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db).
-
 ## Perditio Projects
 
 {personal_count:,} repositories built and maintained by Perditio.
@@ -225,9 +278,7 @@ in [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db).
 
 ## Top Repos by Stars
 
-Upstream repos with the most stars, tracked in this dataset.
-
-{stars_table}
+{top_stars}
 
 ## Top Languages
 
@@ -245,22 +296,24 @@ Upstream repos with the most stars, tracked in this dataset.
 > AI enrichment (Agents, LLM Serving, RAG, Fine-tuning, Observability, etc.) will be populated
 > once the reporium-ingestion pipeline is deployed.
 
-## Data Files
+## Data Access
 
-| File | Description |
-|------|-------------|
-| `data/index.json` | Counts + metadata (tiny, always fast) |
-| `data/recent.json` | Repos pushed in last 7 days (max 500) |
-| `data/top_starred.json` | Top 100 by stars |
-| `data/by_language/*.json` | One file per language |
-| `data/by_category/*.json` | One file per category/topic _(empty until ingestion runs)_ |
-| `data/full/repos_NNNN.json` | Full dataset, up to 10K repos per file |
+Data is served via the [reporium-api](https://github.com/perditioinc/reporium-api):
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /repos?sort=stars` | All repos sorted by upstream stars |
+| `GET /repos?is_fork=false` | Personal projects only |
+| `GET /repos?is_fork=true` | Forked repos only |
+| `GET /library` | Stats, language breakdown, categories |
+| `GET /repos/{{name}}` | Single repo detail |
 
 ## Platform
 
 This dataset powers [reporium.com](https://reporium.com) — search and discovery for AI development tools.
 
-Source data: [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db)
+Source: [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db) |
+API: [perditioinc/reporium-api](https://github.com/perditioinc/reporium-api)
 
 ## License
 
@@ -268,27 +321,30 @@ Data is sourced from the GitHub API. MIT license.
 """
 
 
+# ── Entry point ────────────────────────────────────────────────────────────────
+
+
 async def main() -> None:
-    """Fetch data from reporium-db and regenerate README.md."""
+    """Fetch data from reporium-api and regenerate README.md."""
     import asyncio
 
     t0 = time.monotonic()
-    token = os.getenv("GH_TOKEN", "")
+    api_url = REPORIUM_API_URL
+    if not api_url:
+        logger.warning("REPORIUM_API_URL not set — README will show degraded state")
 
-    index, recent, top_starred, all_repos = await asyncio.gather(
-        _fetch_json(f"{BASE_RAW_URL}/index.json", token),
-        _fetch_json(f"{BASE_RAW_URL}/recent.json", token),
-        _fetch_json(f"{BASE_RAW_URL}/top_starred.json", token),
-        _fetch_json(f"{BASE_RAW_URL}/full/repos_0000.json", token),
+    stats, repos = await asyncio.gather(
+        _fetch_stats(api_url),
+        _fetch_all_repos(api_url),
     )
 
-    readme = build_readme(index, recent, top_starred, all_repos)
+    readme = build_readme(stats, repos)
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme)
 
+    total = (stats or {}).get("total_repos", 0)
     elapsed = time.monotonic() - t0
-    total = (index or {}).get("meta", {}).get("total", 0)
     logger.info("README generated in %.2fs - %d repos", elapsed, total)
 
 
