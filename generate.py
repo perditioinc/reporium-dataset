@@ -318,22 +318,98 @@ Data is sourced from the GitHub API. MIT license.
 """
 
 
+# ── Fallback: reporium-db raw files ───────────────────────────────────────────
+
+_DB_RAW_BASE = "https://raw.githubusercontent.com/perditioinc/reporium-db/main/data"
+
+
+async def _db_get(url: str, token: str) -> Optional[Any]:
+    """Fetch a raw file from reporium-db. Returns parsed JSON or None."""
+    headers = {"Authorization": f"Bearer {token}"} if token else {}
+    try:
+        async with httpx.AsyncClient(timeout=TIMEOUT) as client:
+            resp = await client.get(url, headers=headers)
+            resp.raise_for_status()
+            return resp.json()
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("DB fallback fetch %s failed: %s", url, exc)
+        return None
+
+
+async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
+    """Fallback: read stats and repos from reporium-db raw files.
+
+    Converts reporium-db schema to the same shape build_readme expects.
+    Used when REPORIUM_API_URL is not configured.
+    """
+    import asyncio
+
+    index, raw_repos = await asyncio.gather(
+        _db_get(f"{_DB_RAW_BASE}/index.json", token),
+        _db_get(f"{_DB_RAW_BASE}/full/repos_0000.json", token),
+    )
+
+    stats: Optional[dict] = None
+    if index:
+        meta = index.get("meta", {})
+        stats = {
+            "total_repos": meta.get("total", 0),
+            "languages": index.get("languages", {}),
+            "last_updated": meta.get("last_updated"),
+        }
+
+    repos: Optional[list] = None
+    if raw_repos:
+        repos = []
+        for r in raw_repos:
+            nwo = r.get("nameWithOwner", "")
+            parts = nwo.split("/", 1)
+            owner = parts[0] if len(parts) == 2 else ""
+            name = parts[1] if len(parts) == 2 else nwo
+            repos.append({
+                "name": name,
+                "owner": owner,
+                "description": r.get("description"),
+                "is_fork": r.get("isFork", False),
+                "forked_from": r.get("parentRepo"),
+                "primary_language": r.get("primaryLanguage"),
+                "github_url": f"https://github.com/{nwo}",
+                "parent_stars": r.get("parentStars"),
+                "parent_forks": None,
+                "your_last_push_at": r.get("pushedAt"),
+                "updated_at": r.get("updatedAt"),
+            })
+        if stats:
+            forks = sum(1 for r in repos if r.get("is_fork"))
+            stats["total_forks"] = forks
+            stats["total_non_forks"] = len(repos) - forks
+
+    return stats, repos
+
+
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 
 async def main() -> None:
-    """Fetch data from reporium-api and regenerate README.md."""
+    """Fetch data and regenerate README.md.
+
+    Tries reporium-api first; falls back to reporium-db raw files if the
+    API URL is not configured or the request fails.
+    """
     import asyncio
 
     t0 = time.monotonic()
     api_url = REPORIUM_API_URL
-    if not api_url:
-        logger.warning("REPORIUM_API_URL not set — README will show degraded state")
 
     stats, repos = await asyncio.gather(
         _fetch_stats(api_url),
         _fetch_all_repos(api_url),
     )
+
+    if stats is None or repos is None:
+        token = os.getenv("GH_TOKEN", "")
+        logger.info("API unavailable — falling back to reporium-db raw files")
+        stats, repos = await _fetch_fallback(token)
 
     readme = build_readme(stats, repos)
 
