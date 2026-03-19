@@ -146,33 +146,30 @@ def _fork_display(owner: str, name: str, max_len: int = 35) -> str:
     return full[: max_len - 1] + "…"
 
 
-def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str:
-    """Table of forked repos sorted by upstream stars, capped at limit.
+def _forked_repos_table(repos: list[dict]) -> str:
+    """Table of all forked repos sorted by upstream stars.
 
-    Columns: Fork (owner/name from upstream-owner, truncated) |
-             Stars | Forks | Language | Description
+    Fork column shows only the parent URL.
     """
     if not repos:
         return "_No forked repos found_"
 
     sorted_repos = sorted(repos, key=lambda r: r.get("parent_stars") or 0, reverse=True)
-    shown = sorted_repos[:limit]
 
     rows = [
         "| Fork | Stars | Forks | Language | Description |",
         "|------|------:|------:|----------|-------------|",
     ]
-    for repo in shown:
-        owner = repo.get("owner", "")
-        name = repo.get("name", "")
-        display = _fork_display(owner, name)
-        url = repo.get("github_url") or f"https://github.com/{owner}/{name}"
-
+    for repo in sorted_repos:
         forked_from = repo.get("forked_from") or ""
         if forked_from:
-            fork_cell = f"[{display}]({url}) from [{forked_from}](https://github.com/{forked_from})"
+            parent_url = f"https://github.com/{forked_from}"
+            fork_cell = f"[{parent_url}]({parent_url})"
         else:
-            fork_cell = f"[{display}]({url})"
+            owner = repo.get("owner", "")
+            name = repo.get("name", "")
+            fork_url = repo.get("github_url") or f"https://github.com/{owner}/{name}"
+            fork_cell = f"[{fork_url}]({fork_url})"
 
         parent_stars = repo.get("parent_stars")
         stars_cell = f"{parent_stars:,}" if parent_stars else "—"
@@ -226,15 +223,7 @@ def build_readme(
         personal_section = _personal_repos_table(personal)
         forked_section = _forked_repos_table(forked)
         top_stars = _top_stars_table(repos)
-        shown = min(FORK_TABLE_LIMIT, forked_count)
-        if forked_count > 0:
-            sort_note = "by upstream stars" if any(r.get("parent_stars") for r in forked) else "by last activity"
-            forked_note = (
-                f"\n> Showing top {shown:,} of {forked_count:,} forked repos ({sort_note})."
-                f" Full dataset available via [reporium-api](https://github.com/perditioinc/reporium-api).\n"
-            )
-        else:
-            forked_note = ""
+        forked_note = ""
 
     lang_section = _lang_list(languages) if languages else "_No language data available_"
 

@@ -121,10 +121,11 @@ def test_readme_overview_shows_counts(sample_stats, sample_repos):
     assert "Forked AI repos" in readme
 
 
-def test_readme_fork_column_has_owner_slash_name(sample_stats, sample_repos):
-    """Fork column shows owner/name format."""
+def test_readme_fork_column_shows_parent_url(sample_stats, sample_repos):
+    """Fork column shows only the parent repo URL."""
     readme = build_readme(sample_stats, sample_repos)
-    assert "perditioinc/llm-framework" in readme
+    assert "https://github.com/upstream/llm-framework" in readme
+    assert "https://github.com/bigco/rag-toolkit" in readme
 
 
 def test_readme_repos_none_shows_unavailable(sample_stats):
