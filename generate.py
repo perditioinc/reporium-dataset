@@ -138,11 +138,16 @@ def build_readme(
     total = meta.get("total", 0)
     last_updated = meta.get("last_updated")
     freshness = _freshness_label(last_updated)
-    num_categories = len(categories)
 
     stars_table = _top_stars_table(top_starred or [])
     lang_section = _lang_list(languages) if languages else "_No language data available_"
-    cat_section = _category_list(categories) if categories else "_No category data available_"
+
+    # Enrichment categories from the reporium-ingestion pipeline
+    enrichment_cats = (
+        "- **Agents** · **LLM Serving** · **Evaluation** · **RAG** · **Fine-tuning** · "
+        "**Observability** · **Vector Stores** · **Orchestration** · **Code Generation** · "
+        "**Data Pipelines** · **Tooling** · **Models**"
+    )
 
     degraded_note = (
         "\n> **Note:** Source data is temporarily unavailable. Showing cached info.\n"
@@ -151,8 +156,8 @@ def build_readme(
     )
 
     return f"""# Reporium Dataset
-> The most comprehensive dataset of AI development tools on GitHub.
-> Updated nightly. Currently tracking {total:,} repos across {num_categories} categories.
+> {total:,} AI development tools tracked on GitHub. Nightly updates. 12 enrichment categories.
+> The open dataset behind [reporium.com](https://reporium.com) — find what AI engineers are actually building.
 {degraded_note}
 [![Updated nightly](https://img.shields.io/badge/updated-nightly-blue)](https://github.com/perditioinc/reporium-db)
 [![Repos tracked](https://img.shields.io/badge/repos-{total:,}-green)](https://reporium.com)
@@ -160,9 +165,14 @@ def build_readme(
 ## Overview
 
 This dataset is automatically updated every night from [reporium-db](https://github.com/perditioinc/reporium-db),
-which fetches metadata for AI development tools on GitHub via the GraphQL API.
+which fetches GitHub repository metadata via the GraphQL API. Repos are AI-enriched by
+[reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) across 12 categories.
 
-**{freshness}** | [{total:,} repos tracked](https://reporium.com) | {num_categories} categories
+**{freshness}** | [{total:,} repos tracked](https://reporium.com) | 12 AI categories
+
+## AI Categories
+
+{enrichment_cats}
 
 ## Top Repos by Stars
 
@@ -171,10 +181,6 @@ which fetches metadata for AI development tools on GitHub via the GraphQL API.
 ## Top Languages
 
 {lang_section}
-
-## Top Categories
-
-{cat_section}
 
 ## Data Files
 
@@ -189,7 +195,9 @@ which fetches metadata for AI development tools on GitHub via the GraphQL API.
 
 ## Platform
 
-This dataset powers [reporium.com](https://reporium.com) — search and discovery for AI development tools.
+This dataset powers [reporium.com](https://reporium.com) - search and discovery for AI development tools.
+
+Source: [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db)
 
 ## License
 
@@ -208,12 +216,12 @@ async def main() -> None:
 
     readme = build_readme(index, recent, top_starred)
 
-    with open("README.md", "w") as f:
+    with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme)
 
     elapsed = time.monotonic() - t0
     total = (index or {}).get("meta", {}).get("total", 0)
-    logger.info("README generated in %.2fs — %d repos", elapsed, total)
+    logger.info("README generated in %.2fs - %d repos", elapsed, total)
 
 
 if __name__ == "__main__":
