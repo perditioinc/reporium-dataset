@@ -140,13 +140,6 @@ def build_readme(
     stars_table = _top_stars_table(top_starred or [])
     lang_section = _lang_list(languages) if languages else "_No language data available_"
 
-    # Enrichment categories from the reporium-ingestion pipeline
-    enrichment_cats = (
-        "- **Agents** · **LLM Serving** · **Evaluation** · **RAG** · **Fine-tuning** · "
-        "**Observability** · **Vector Stores** · **Orchestration** · **Code Generation** · "
-        "**Data Pipelines** · **Tooling** · **Models**"
-    )
-
     degraded_note = (
         "\n> **Note:** Source data is temporarily unavailable. Showing cached info.\n"
         if degraded
@@ -154,8 +147,8 @@ def build_readme(
     )
 
     return f"""# Reporium Dataset
-> {total:,} AI development tools tracked on GitHub. Nightly updates. 12 enrichment categories.
-> The open dataset behind [reporium.com](https://reporium.com) — find what AI engineers are actually building.
+> {total:,} AI development tool repositories tracked on GitHub. Nightly updates.
+> The open dataset behind [reporium.com](https://reporium.com).
 {degraded_note}
 [![Updated nightly](https://img.shields.io/badge/updated-nightly-blue)](https://github.com/perditioinc/reporium-db)
 [![Repos tracked](https://img.shields.io/badge/repos-{total:,}-green)](https://reporium.com)
@@ -163,14 +156,22 @@ def build_readme(
 ## Overview
 
 This dataset is automatically updated every night from [reporium-db](https://github.com/perditioinc/reporium-db),
-which fetches GitHub repository metadata via the GraphQL API. Repos are AI-enriched by
-[reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) across 12 categories.
+which fetches GitHub repository metadata via the GraphQL API.
 
-**{freshness}** | [{total:,} repos tracked](https://reporium.com) | 12 AI categories
+**{freshness}** | [{total:,} repos tracked](https://reporium.com) | 29 languages
 
-## AI Categories
+## Status
 
-{enrichment_cats}
+| Component | Status |
+|-----------|--------|
+| Repo tracking | Active — {total:,} repos, nightly sync |
+| Language breakdown | Active — 29 languages tracked |
+| AI enrichment categories | Not yet active — ingestion pipeline not running |
+| README summaries | Not yet active — ingestion pipeline not running |
+
+> AI enrichment categories (Agents, LLM Serving, RAG, Fine-tuning, Observability, etc.)
+> will be populated once the reporium-ingestion pipeline is deployed. Currently 0 repos
+> have been categorized.
 
 ## Top Repos by Stars
 
@@ -188,7 +189,7 @@ which fetches GitHub repository metadata via the GraphQL API. Repos are AI-enric
 | `data/recent.json` | Repos pushed in last 7 days (max 500) |
 | `data/top_starred.json` | Top 100 by stars |
 | `data/by_language/*.json` | One file per language |
-| `data/by_category/*.json` | One file per category/topic |
+| `data/by_category/*.json` | One file per category/topic (empty until ingestion runs) |
 | `data/full/repos_NNNN.json` | Full dataset, 10K repos per file |
 
 ## Platform

@@ -36,9 +36,9 @@ def test_readme_shows_top_languages(sample_index, sample_top_starred):
 
 
 def test_readme_shows_top_categories(sample_index, sample_top_starred):
-    """README includes the AI categories section."""
+    """README is honest about category enrichment status."""
     readme = build_readme(sample_index, [], sample_top_starred)
-    assert "LLM" in readme
+    assert "ingestion" in readme.lower()
 
 
 def test_readme_graceful_degradation_when_none():
