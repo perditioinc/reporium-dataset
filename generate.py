@@ -94,6 +94,14 @@ def _freshness_label(last_updated: Optional[str]) -> str:
         return "Update time unknown"
 
 
+def _truncate(text: str, max_len: int) -> str:
+    """Truncate text at a word boundary to fit table columns on desktop."""
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len].rsplit(" ", 1)[0]
+    return cut + "…"
+
+
 def _top_stars_table(repos: list[dict]) -> str:
     """Top 10 forked repos by upstream star count."""
     forks = [r for r in repos if r.get("is_fork") and r.get("parent_stars")]
@@ -131,7 +139,7 @@ def _personal_repos_table(repos: list[dict]) -> str:
         name = repo.get("name", "")
         full_name = f"{owner}/{name}"
         lang = repo.get("primary_language") or "—"
-        desc = (repo.get("description") or "—").replace("|", "-")
+        desc = _truncate((repo.get("description") or "—").replace("|", "-"), 60)
         pushed = (repo.get("your_last_push_at") or repo.get("updated_at") or "")[:10] or "—"
         url = repo.get("github_url") or f"https://github.com/{full_name}"
         rows.append(f"| [{full_name}]({url}) | {desc} | {lang} | {pushed} |")
@@ -178,7 +186,7 @@ def _forked_repos_table(repos: list[dict]) -> str:
         forks_cell = f"{parent_forks:,}" if parent_forks is not None else "—"
 
         lang = repo.get("primary_language") or "—"
-        desc = (repo.get("description") or "—").replace("|", "-")
+        desc = _truncate((repo.get("description") or "—").replace("|", "-"), 55)
 
         rows.append(f"| {fork_cell} | {stars_cell} | {forks_cell} | {lang} | {desc} |")
     return "\n".join(rows)
