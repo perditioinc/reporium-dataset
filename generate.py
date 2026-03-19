@@ -110,8 +110,8 @@ def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str
 
     shown = sorted_repos[:limit]
     rows = [
-        "| Fork | Upstream Repo | Upstream ⭐ | Language | Description |",
-        "|------|--------------|------------:|----------|-------------|",
+        "| Fork | Forked From | Stars | Forks | Language | Description |",
+        "|------|------------|------:|------:|----------|-------------|",
     ]
     for repo in shown:
         name = repo.get("nameWithOwner", "")
@@ -120,18 +120,20 @@ def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str
         raw_desc = (repo.get("description") or "—").replace("|", "-")
         desc = raw_desc[:80] + ("…" if len(raw_desc) > 80 else "")
         fork_url = f"https://github.com/{name}"
+        forks = f"{repo.get('forks', 0):,}"
 
         parent = repo.get("parentRepo")
         parent_stars = repo.get("parentStars")
         if parent:
-            parent_url = f"https://github.com/{parent}"
-            parent_cell = f"[{parent}]({parent_url})"
+            owner = parent.split("/")[0]
+            owner_url = f"https://github.com/{owner}"
+            forked_from_cell = f"[{owner}]({owner_url})"
             stars_cell = f"{parent_stars:,}" if parent_stars else "—"
         else:
-            parent_cell = "—"
+            forked_from_cell = "—"
             stars_cell = "—"
 
-        rows.append(f"| [{short}]({fork_url}) | {parent_cell} | {stars_cell} | {lang} | {desc} |")
+        rows.append(f"| [{short}]({fork_url}) | {forked_from_cell} | {stars_cell} | {forks} | {lang} | {desc} |")
     return "\n".join(rows)
 
 

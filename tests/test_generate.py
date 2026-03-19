@@ -92,9 +92,11 @@ def test_readme_forked_repos_section(sample_index, sample_top_starred, sample_al
 
 
 def test_readme_forked_repos_show_parent(sample_index, sample_top_starred, sample_all_repos):
-    """Forked repos table shows upstream parent repo and stars."""
+    """Forked repos table shows upstream owner username, stars, and forks."""
     readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
-    assert "upstream/llm-framework" in readme
+    # shows owner username (not full repo path)
+    assert "upstream" in readme
+    assert "upstream/llm-framework" not in readme
     assert "15,000" in readme
 
 
