@@ -164,12 +164,12 @@ def _forked_repos_table(repos: list[dict]) -> str:
         forked_from = repo.get("forked_from") or ""
         if forked_from:
             parent_url = f"https://github.com/{forked_from}"
-            fork_cell = f"[github.com/{forked_from}]({parent_url})"
+            fork_cell = f"[{forked_from}]({parent_url})"
         else:
             owner = repo.get("owner", "")
             name = repo.get("name", "")
             fork_url = repo.get("github_url") or f"https://github.com/{owner}/{name}"
-            fork_cell = f"[github.com/{owner}/{name}]({fork_url})"
+            fork_cell = f"[{owner}/{name}]({fork_url})"
 
         parent_stars = repo.get("parent_stars")
         stars_cell = f"{parent_stars:,}" if parent_stars else "—"
