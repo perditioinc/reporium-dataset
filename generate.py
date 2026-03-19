@@ -170,8 +170,7 @@ def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str
 
         forked_from = repo.get("forked_from") or ""
         if forked_from:
-            upstream_owner = forked_from.split("/")[0]
-            fork_cell = f"[{display}]({url}) from [{upstream_owner}](https://github.com/{upstream_owner})"
+            fork_cell = f"[{display}]({url}) from [{forked_from}](https://github.com/{forked_from})"
         else:
             fork_cell = f"[{display}]({url})"
 

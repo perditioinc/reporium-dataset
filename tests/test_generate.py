@@ -85,13 +85,12 @@ def test_readme_forked_section_shows_repos(sample_stats, sample_repos):
     assert "rag-toolkit" in readme
 
 
-def test_readme_forked_section_shows_upstream_owner(sample_stats, sample_repos):
-    """Fork column embeds upstream owner username inline (no separate Forked From column)."""
+def test_readme_forked_section_shows_upstream_path(sample_stats, sample_repos):
+    """Fork column shows full parent repo path inline (no separate Forked From column)."""
     readme = build_readme(sample_stats, sample_repos)
-    assert "upstream" in readme
-    assert "bigco" in readme
+    assert "upstream/llm-framework" in readme
+    assert "bigco/rag-toolkit" in readme
     assert "Forked From" not in readme
-    assert "upstream/llm-framework" not in readme
 
 
 def test_readme_forked_section_shows_stars_and_forks(sample_stats, sample_repos):
