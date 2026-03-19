@@ -131,7 +131,7 @@ def _personal_repos_table(repos: list[dict]) -> str:
         name = repo.get("name", "")
         full_name = f"{owner}/{name}"
         lang = repo.get("primary_language") or "—"
-        desc = (repo.get("description") or "—").replace("|", "-")[:80]
+        desc = (repo.get("description") or "—").replace("|", "-")
         pushed = (repo.get("your_last_push_at") or repo.get("updated_at") or "")[:10] or "—"
         url = repo.get("github_url") or f"https://github.com/{full_name}"
         rows.append(f"| [{full_name}]({url}) | {desc} | {lang} | {pushed} |")
@@ -178,8 +178,7 @@ def _forked_repos_table(repos: list[dict]) -> str:
         forks_cell = f"{parent_forks:,}" if parent_forks is not None else "—"
 
         lang = repo.get("primary_language") or "—"
-        raw_desc = (repo.get("description") or "—").replace("|", "-")
-        desc = raw_desc[:70] + ("…" if len(raw_desc) > 70 else "")
+        desc = (repo.get("description") or "—").replace("|", "-")
 
         rows.append(f"| {fork_cell} | {stars_cell} | {forks_cell} | {lang} | {desc} |")
     return "\n".join(rows)
