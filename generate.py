@@ -132,7 +132,6 @@ def build_readme(
     else:
         meta = index.get("meta", {})
         languages = index.get("languages", {})
-        categories = index.get("categories", {})
         degraded = False
 
     total = meta.get("total", 0)
