@@ -121,11 +121,13 @@ def test_readme_overview_shows_counts(sample_stats, sample_repos):
     assert "Forked AI repos" in readme
 
 
-def test_readme_fork_column_shows_parent_url(sample_stats, sample_repos):
-    """Fork column shows only the parent repo URL."""
+def test_readme_fork_column_shows_shortened_parent_url(sample_stats, sample_repos):
+    """Fork column shows shortened parent URL (github.com/owner/name)."""
     readme = build_readme(sample_stats, sample_repos)
-    assert "https://github.com/upstream/llm-framework" in readme
-    assert "https://github.com/bigco/rag-toolkit" in readme
+    assert "github.com/upstream/llm-framework" in readme
+    assert "github.com/bigco/rag-toolkit" in readme
+    # full https:// prefix should not appear as link text
+    assert "[https://github.com" not in readme
 
 
 def test_readme_repos_none_shows_unavailable(sample_stats):
