@@ -14,7 +14,7 @@
 | Forked AI repos | 808 |
 | Languages tracked | 29 |
 | AI categories enriched | 0 _(ingestion pipeline not yet running)_ |
-| Last updated | Updated less than 1h ago |
+| Last updated | Updated 1h ago |
 
 ## Perditio Projects
 
