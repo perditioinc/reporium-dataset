@@ -149,7 +149,7 @@ def _fork_display(owner: str, name: str, max_len: int = 35) -> str:
 def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str:
     """Table of forked repos sorted by upstream stars, capped at limit.
 
-    Columns: Fork (owner/name truncated) | Forked From (upstream owner) |
+    Columns: Fork (owner/name from upstream-owner, truncated) |
              Stars | Forks | Language | Description
     """
     if not repos:
@@ -159,22 +159,21 @@ def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str
     shown = sorted_repos[:limit]
 
     rows = [
-        "| Fork | Forked From | Stars | Forks | Language | Description |",
-        "|------|------------|------:|------:|----------|-------------|",
+        "| Fork | Stars | Forks | Language | Description |",
+        "|------|------:|------:|----------|-------------|",
     ]
     for repo in shown:
         owner = repo.get("owner", "")
         name = repo.get("name", "")
         display = _fork_display(owner, name)
         url = repo.get("github_url") or f"https://github.com/{owner}/{name}"
-        fork_cell = f"[{display}]({url})"
 
         forked_from = repo.get("forked_from") or ""
         if forked_from:
             upstream_owner = forked_from.split("/")[0]
-            forked_from_cell = f"[{upstream_owner}](https://github.com/{upstream_owner})"
+            fork_cell = f"[{display}]({url}) from [{upstream_owner}](https://github.com/{upstream_owner})"
         else:
-            forked_from_cell = "—"
+            fork_cell = f"[{display}]({url})"
 
         parent_stars = repo.get("parent_stars")
         stars_cell = f"{parent_stars:,}" if parent_stars else "—"
@@ -186,9 +185,7 @@ def _forked_repos_table(repos: list[dict], limit: int = FORK_TABLE_LIMIT) -> str
         raw_desc = (repo.get("description") or "—").replace("|", "-")
         desc = raw_desc[:70] + ("…" if len(raw_desc) > 70 else "")
 
-        rows.append(
-            f"| {fork_cell} | {forked_from_cell} | {stars_cell} | {forks_cell} | {lang} | {desc} |"
-        )
+        rows.append(f"| {fork_cell} | {stars_cell} | {forks_cell} | {lang} | {desc} |")
     return "\n".join(rows)
 
 

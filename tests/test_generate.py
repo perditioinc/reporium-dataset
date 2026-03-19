@@ -86,12 +86,11 @@ def test_readme_forked_section_shows_repos(sample_stats, sample_repos):
 
 
 def test_readme_forked_section_shows_upstream_owner(sample_stats, sample_repos):
-    """Forked repos table shows upstream owner username (not full path)."""
+    """Fork column embeds upstream owner username inline (no separate Forked From column)."""
     readme = build_readme(sample_stats, sample_repos)
-    # upstream owner username only
     assert "upstream" in readme
     assert "bigco" in readme
-    # full upstream repo path should NOT appear as a column value
+    assert "Forked From" not in readme
     assert "upstream/llm-framework" not in readme
 
 
