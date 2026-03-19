@@ -59,28 +59,55 @@ def test_readme_has_required_sections(sample_index, sample_top_starred):
     readme = build_readme(sample_index, [], sample_top_starred)
     for section in [
         "## Overview",
+        "## Perditio Projects",
+        "## Forked AI Repos",
         "## Top Repos by Stars",
         "## Top Languages",
-        "## All Repos",
         "## Data Files",
     ]:
         assert section in readme, f"Missing: {section}"
 
 
-def test_readme_full_repo_table(sample_index, sample_top_starred, sample_all_repos):
-    """README includes the full repo table with all repos."""
+def test_readme_personal_repos_section(sample_index, sample_top_starred, sample_all_repos):
+    """README includes the personal repos section with non-fork repos."""
     readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
-    assert "## All Repos" in readme
+    assert "## Perditio Projects" in readme
     assert "owner/repo-a" in readme
     assert "owner/repo-b" in readme
 
 
-def test_readme_full_repo_table_sorted_by_stars(sample_index, sample_top_starred, sample_all_repos):
-    """Full repo table is sorted by stars descending."""
+def test_readme_personal_repos_sorted_by_stars(sample_index, sample_top_starred, sample_all_repos):
+    """Personal repos table is sorted by stars descending."""
     readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
     pos_a = readme.find("repo-a")  # 8000 stars
     pos_b = readme.find("repo-b")  # 2000 stars
     assert pos_a < pos_b
+
+
+def test_readme_forked_repos_section(sample_index, sample_top_starred, sample_all_repos):
+    """README includes the forked repos section."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    assert "## Forked AI Repos" in readme
+    assert "forked-llm" in readme
+
+
+def test_readme_forked_repos_show_parent(sample_index, sample_top_starred, sample_all_repos):
+    """Forked repos table shows upstream parent repo and stars."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    assert "upstream/llm-framework" in readme
+    assert "15,000" in readme
+
+
+def test_readme_personal_and_forked_separated(sample_index, sample_top_starred, sample_all_repos):
+    """Personal repos and forked repos appear in distinct sections."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    personal_pos = readme.find("## Perditio Projects")
+    forked_pos = readme.find("## Forked AI Repos")
+    assert personal_pos < forked_pos
+    # repo-a/b (personal) should appear before forked-llm
+    pos_personal = readme.find("repo-a")
+    pos_fork = readme.find("forked-llm")
+    assert pos_personal < pos_fork
 
 
 def test_readme_full_repo_table_missing_gracefully(sample_index, sample_top_starred):
@@ -88,6 +115,13 @@ def test_readme_full_repo_table_missing_gracefully(sample_index, sample_top_star
     readme = build_readme(sample_index, [], sample_top_starred, None)
     assert "# Reporium Dataset" in readme
     assert "unavailable" in readme
+
+
+def test_readme_overview_shows_counts(sample_index, sample_top_starred, sample_all_repos):
+    """Overview table shows personal and forked counts."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    assert "Perditio projects" in readme
+    assert "Forked AI repos" in readme
 
 
 # ── _freshness_label ──────────────────────────────────────────────────────────

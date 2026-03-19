@@ -40,7 +40,7 @@ def sample_top_starred() -> list:
 
 @pytest.fixture
 def sample_all_repos() -> list:
-    """A minimal full repos payload from data/full/repos_0000.json."""
+    """A minimal full repos payload — mix of personal and forked repos."""
     return [
         {
             "nameWithOwner": "owner/repo-b",
@@ -48,6 +48,10 @@ def sample_all_repos() -> list:
             "stars": 2000,
             "primaryLanguage": "Go",
             "description": "Fast inference engine",
+            "isFork": False,
+            "pushedAt": "2026-03-01T00:00:00Z",
+            "parentRepo": None,
+            "parentStars": None,
         },
         {
             "nameWithOwner": "owner/repo-a",
@@ -55,5 +59,20 @@ def sample_all_repos() -> list:
             "stars": 8000,
             "primaryLanguage": "Python",
             "description": "Top RAG library",
+            "isFork": False,
+            "pushedAt": "2026-03-10T00:00:00Z",
+            "parentRepo": None,
+            "parentStars": None,
+        },
+        {
+            "nameWithOwner": "owner/forked-llm",
+            "name": "forked-llm",
+            "stars": 0,
+            "primaryLanguage": "Python",
+            "description": "Great LLM framework",
+            "isFork": True,
+            "pushedAt": "2026-03-15T00:00:00Z",
+            "parentRepo": "upstream/llm-framework",
+            "parentStars": 15000,
         },
     ]
