@@ -127,7 +127,6 @@ def build_readme(
     if index is None:
         meta: dict = {}
         languages: dict = {}
-        categories: dict = {}
         degraded = True
     else:
         meta = index.get("meta", {})
