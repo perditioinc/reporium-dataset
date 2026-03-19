@@ -96,23 +96,34 @@ def _lang_list(languages: dict[str, int]) -> str:
     return "\n".join(f"- **{lang}**: {count:,} repos" for lang, count in items)
 
 
-def _category_list(categories: dict[str, int]) -> str:
-    """Format top 5 categories as a markdown list.
+def _all_repos_table(repos: list[dict]) -> str:
+    """Format all repos as a markdown table sorted by stars descending.
 
     Args:
-        categories: Ordered dict of category → count.
+        repos: List of repo dicts from data/full/repos_0000.json.
 
     Returns:
-        Markdown bullet list string.
+        Markdown table string.
     """
-    items = list(categories.items())[:5]
-    return "\n".join(f"- **{cat}**: {count:,} repos" for cat, count in items)
+    if not repos:
+        return "_No data available_"
+    sorted_repos = sorted(repos, key=lambda r: r.get("stars", 0), reverse=True)
+    rows = ["| Repo | Stars | Language | Description |", "|------|-------|----------|-------------|"]
+    for repo in sorted_repos:
+        name = repo.get("nameWithOwner", "")
+        stars = f"{repo.get('stars', 0):,}"
+        lang = repo.get("primaryLanguage") or "—"
+        desc = (repo.get("description") or "—").replace("|", "-")
+        url = f"https://github.com/{name}"
+        rows.append(f"| [{name}]({url}) | {stars} | {lang} | {desc} |")
+    return "\n".join(rows)
 
 
 def build_readme(
     index: Optional[dict],
     recent: Optional[list],
     top_starred: Optional[list],
+    all_repos: Optional[list] = None,
 ) -> str:
     """Build README.md content from fetched data with graceful degradation.
 
@@ -120,6 +131,7 @@ def build_readme(
         index: Parsed index.json or None if unavailable.
         recent: Parsed recent.json list or None.
         top_starred: Parsed top_starred.json list or None.
+        all_repos: All repos from data/full/repos_0000.json or None.
 
     Returns:
         Markdown string for README.md.
@@ -139,6 +151,8 @@ def build_readme(
 
     stars_table = _top_stars_table(top_starred or [])
     lang_section = _lang_list(languages) if languages else "_No language data available_"
+    full_table = _all_repos_table(all_repos) if all_repos else "_Full repo list unavailable_"
+    full_count = len(all_repos) if all_repos else total
 
     degraded_note = (
         "\n> **Note:** Source data is temporarily unavailable. Showing cached info.\n"
@@ -181,6 +195,10 @@ which fetches GitHub repository metadata via the GraphQL API.
 
 {lang_section}
 
+## All Repos ({full_count:,} total, sorted by stars)
+
+{full_table}
+
 ## Data Files
 
 | File | Description |
@@ -206,14 +224,19 @@ Data is sourced from the GitHub API. MIT license.
 
 async def main() -> None:
     """Fetch data from reporium-db and regenerate README.md."""
+    import asyncio
+
     t0 = time.monotonic()
     token = os.getenv("GH_TOKEN", "")
 
-    index = await _fetch_json(f"{BASE_RAW_URL}/index.json", token)
-    recent = await _fetch_json(f"{BASE_RAW_URL}/recent.json", token)
-    top_starred = await _fetch_json(f"{BASE_RAW_URL}/top_starred.json", token)
+    index, recent, top_starred, all_repos = await asyncio.gather(
+        _fetch_json(f"{BASE_RAW_URL}/index.json", token),
+        _fetch_json(f"{BASE_RAW_URL}/recent.json", token),
+        _fetch_json(f"{BASE_RAW_URL}/top_starred.json", token),
+        _fetch_json(f"{BASE_RAW_URL}/full/repos_0000.json", token),
+    )
 
-    readme = build_readme(index, recent, top_starred)
+    readme = build_readme(index, recent, top_starred, all_repos)
 
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme)

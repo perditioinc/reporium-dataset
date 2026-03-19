@@ -57,8 +57,37 @@ def test_readme_no_degraded_note_when_data_present(sample_index, sample_top_star
 def test_readme_has_required_sections(sample_index, sample_top_starred):
     """README contains all required structural sections."""
     readme = build_readme(sample_index, [], sample_top_starred)
-    for section in ["## Overview", "## Top Repos by Stars", "## Top Languages", "## Data Files"]:
+    for section in [
+        "## Overview",
+        "## Top Repos by Stars",
+        "## Top Languages",
+        "## All Repos",
+        "## Data Files",
+    ]:
         assert section in readme, f"Missing: {section}"
+
+
+def test_readme_full_repo_table(sample_index, sample_top_starred, sample_all_repos):
+    """README includes the full repo table with all repos."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    assert "## All Repos" in readme
+    assert "owner/repo-a" in readme
+    assert "owner/repo-b" in readme
+
+
+def test_readme_full_repo_table_sorted_by_stars(sample_index, sample_top_starred, sample_all_repos):
+    """Full repo table is sorted by stars descending."""
+    readme = build_readme(sample_index, [], sample_top_starred, sample_all_repos)
+    pos_a = readme.find("repo-a")  # 8000 stars
+    pos_b = readme.find("repo-b")  # 2000 stars
+    assert pos_a < pos_b
+
+
+def test_readme_full_repo_table_missing_gracefully(sample_index, sample_top_starred):
+    """README renders without crash when full repos are unavailable."""
+    readme = build_readme(sample_index, [], sample_top_starred, None)
+    assert "# Reporium Dataset" in readme
+    assert "unavailable" in readme
 
 
 # ── _freshness_label ──────────────────────────────────────────────────────────

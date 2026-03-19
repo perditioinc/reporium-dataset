@@ -36,3 +36,24 @@ def sample_top_starred() -> list:
             "description": "Another great tool",
         },
     ]
+
+
+@pytest.fixture
+def sample_all_repos() -> list:
+    """A minimal full repos payload from data/full/repos_0000.json."""
+    return [
+        {
+            "nameWithOwner": "owner/repo-b",
+            "name": "repo-b",
+            "stars": 2000,
+            "primaryLanguage": "Go",
+            "description": "Fast inference engine",
+        },
+        {
+            "nameWithOwner": "owner/repo-a",
+            "name": "repo-a",
+            "stars": 8000,
+            "primaryLanguage": "Python",
+            "description": "Top RAG library",
+        },
+    ]
