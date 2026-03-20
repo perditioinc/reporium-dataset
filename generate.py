@@ -242,7 +242,8 @@ def build_readme(
 
     return f"""# Reporium Dataset
 <!-- perditio-badges-start -->
-[![Tests](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml/badge.svg)](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml)
+[![Tests](https://github.com/perditioinc/reporium-dataset/actions/workflows/test.yml/badge.svg)](https://github.com/perditioinc/reporium-dataset/actions/workflows/test.yml)
+[![Nightly](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml/badge.svg)](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml)
 ![Last Commit](https://img.shields.io/github/last-commit/perditioinc/reporium-dataset)
 ![python](https://img.shields.io/badge/python-3.11%2B-3776ab)
 ![suite](https://img.shields.io/badge/suite-Reporium-6e40c9)
