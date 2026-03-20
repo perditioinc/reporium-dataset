@@ -242,6 +242,8 @@ def build_readme(
 
     return f"""# Reporium Dataset
 
+[![Nightly](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml/badge.svg)](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml)
+
 > Open dataset of AI development tool repositories — updated nightly from [reporium-api](https://github.com/perditioinc/reporium-api).
 {degraded_note}
 [![Updated nightly](https://img.shields.io/badge/updated-nightly-blue)](https://github.com/perditioinc/reporium-db)
