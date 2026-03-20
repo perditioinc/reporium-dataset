@@ -244,11 +244,8 @@ def build_readme(
 <!-- perditio-badges-start -->
 [![Tests](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml/badge.svg)](https://github.com/perditioinc/reporium-dataset/actions/workflows/update.yml)
 ![Last Commit](https://img.shields.io/github/last-commit/perditioinc/reporium-dataset)
-![License](https://img.shields.io/github/license/perditioinc/reporium-dataset)
 ![python](https://img.shields.io/badge/python-3.11%2B-3776ab)
 ![suite](https://img.shields.io/badge/suite-Reporium-6e40c9)
-![repos](https://img.shields.io/badge/repos-826-blue)
-![updated](https://img.shields.io/badge/updated-nightly-blue)
 <!-- perditio-badges-end -->
 
 > Open dataset of AI development tool repositories — updated nightly from [reporium-api](https://github.com/perditioinc/reporium-api).
