@@ -878,7 +878,7 @@
 
 ## Top Languages
 
-- **Python**: 1 repos
+- **TypeScript**: 1 repos
 
 ## Status
 
