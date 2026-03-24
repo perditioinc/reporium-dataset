@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import math
 import os
 import time
 from datetime import datetime, timezone
@@ -21,6 +22,7 @@ logger = logging.getLogger(__name__)
 REPORIUM_API_URL = os.getenv("REPORIUM_API_URL", "")
 TIMEOUT = 15
 FORK_TABLE_LIMIT = 100
+FULL_PARTITION_SIZE = 10_000
 
 
 # ── API fetching ───────────────────────────────────────────────────────────────
@@ -338,6 +340,34 @@ async def _db_get(url: str, token: str) -> Optional[Any]:
         return None
 
 
+async def _fetch_fallback_partitions(total_repos: int, token: str) -> list[dict]:
+    """Fetch all raw dataset partitions needed to cover the current repo count.
+
+    reporium-db writes full dataset partitions as full/repos_XXXX.json in 10K-repo chunks.
+    Reading only repos_0000.json silently truncates the fallback once the dataset grows past
+    the first partition, so we fetch every partition implied by the reported total.
+    """
+    if total_repos <= 0:
+        return []
+
+    import asyncio
+
+    partition_count = max(1, math.ceil(total_repos / FULL_PARTITION_SIZE))
+    urls = [
+        f"{_DB_RAW_BASE}/full/repos_{idx:04d}.json"
+        for idx in range(partition_count)
+    ]
+    payloads = await asyncio.gather(*[_db_get(url, token) for url in urls])
+
+    repos: list[dict] = []
+    for idx, payload in enumerate(payloads):
+        if isinstance(payload, list):
+            repos.extend(payload)
+        else:
+            logger.warning("Missing or invalid fallback partition %s", urls[idx])
+    return repos
+
+
 async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
     """Fallback: read stats and repos from reporium-db raw files.
 
@@ -346,10 +376,7 @@ async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
     """
     import asyncio
 
-    index, raw_repos = await asyncio.gather(
-        _db_get(f"{_DB_RAW_BASE}/index.json", token),
-        _db_get(f"{_DB_RAW_BASE}/full/repos_0000.json", token),
-    )
+    index = await _db_get(f"{_DB_RAW_BASE}/index.json", token)
 
     stats: Optional[dict] = None
     if index:
@@ -361,6 +388,11 @@ async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
         }
 
     repos: Optional[list] = None
+    if stats:
+        raw_repos = await _fetch_fallback_partitions(stats["total_repos"], token)
+    else:
+        raw_repos = []
+
     if raw_repos:
         repos = []
         for r in raw_repos:
