@@ -10,22 +10,22 @@
 > Open dataset of AI development tool repositories — updated nightly from [reporium-api](https://github.com/perditioinc/reporium-api).
 
 [![Updated nightly](https://img.shields.io/badge/updated-nightly-blue)](https://github.com/perditioinc/reporium-db)
-[![Repos tracked](https://img.shields.io/badge/repos-1,468-green)](https://reporium.com)
+[![Repos tracked](https://img.shields.io/badge/repos-1,544-green)](https://reporium.com)
 
 ## Overview
 
 | Stat | Value |
 |------|------:|
-| Total repos | 1,468 |
-| Perditio projects | 17 |
-| Forked AI repos | 1,451 |
+| Total repos | 1,544 |
+| Perditio projects | 56 |
+| Forked AI repos | 1,488 |
 | Languages tracked | 1 |
 | AI categories enriched | 0 _(ingestion pipeline not yet running)_ |
 | Last updated | Update time unknown |
 
 ## Perditio Projects
 
-17 repositories built and maintained by Perditio.
+56 repositories built and maintained by Perditio.
 
 | Repo | Description | Language | Last Active |
 |------|-------------|----------|-------------|
@@ -35,16 +35,55 @@
 | [perditioinc/reporium-events](https://github.com/perditioinc/reporium-events) | Event schema definitions and Python publisher client for… | Python | 2026-03-23 |
 | [perditioinc/reporium-scoring](https://github.com/perditioinc/reporium-scoring) | Score any GitHub repo 0-100 for the Reporium platform —… | Python | 2026-03-21 |
 | [perditioinc/reporium-system-design](https://github.com/perditioinc/reporium-system-design) | Architecture decisions, tradeoffs, CAP theorem analysis,… | Python | 2026-03-21 |
+| [perditioinc/perditioinc.github.io](https://github.com/perditioinc/perditioinc.github.io) | Perditio | HTML | 2026-03-29 |
+| [perditioinc/didymo-ai-api](https://github.com/perditioinc/didymo-ai-api) | Backend API service for **Didymo AI Digital Twin**… | JavaScript | 2026-03-29 |
 | [perditioinc/reporium-metrics](https://github.com/perditioinc/reporium-metrics) | Platform performance tracking over time — ASCII trend… | Python | 2026-03-25 |
+| [perditioinc/event-schedule-generator](https://github.com/perditioinc/event-schedule-generator) | Nano Banana Hackathon Event Schedule Generator | — | 2026-03-29 |
 | [perditioinc/reporium-api](https://github.com/perditioinc/reporium-api) | Backend API for Reporium : read/write access to repository… | Python | 2026-03-26 |
+| [perditioinc/ticket-issuer](https://github.com/perditioinc/ticket-issuer) | Ticket Issuer (Cloud Run, us-central1). Sends WhatsApp… | JavaScript | 2026-03-29 |
+| [perditioinc/perditio-web-app](https://github.com/perditioinc/perditio-web-app) | Perditio Website App made with Firebase Studio + Gemini | TypeScript | 2026-03-29 |
+| [perditioinc/aa-backend-interview-template-main](https://github.com/perditioinc/aa-backend-interview-template-main) | Python Backend Interview | Python | 2026-03-29 |
+| [perditioinc/didymo-ai-auth](https://github.com/perditioinc/didymo-ai-auth) | SSO for all Didymo.ai Apps via Google & Email/Password… | JavaScript | 2026-03-29 |
 | [perditioinc/repo-intelligence](https://github.com/perditioinc/repo-intelligence) | Score any GitHub repo 0-100 — README, activity, community,… | Python | 2026-03-20 |
-| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-03-27 |
+| [perditioinc/didymo-ai-openai-stt](https://github.com/perditioinc/didymo-ai-openai-stt) | OpenAI speech→text | JavaScript | 2026-03-29 |
+| [perditioinc/didymo-ai-ingest](https://github.com/perditioinc/didymo-ai-ingest) | admin/batch ingestion for RAG (pull docs → chunk → upsert… | JavaScript | 2026-03-29 |
+| [perditioinc/mind-guard-app](https://github.com/perditioinc/mind-guard-app) | MindGuard App | TypeScript | 2026-03-29 |
+| [perditioinc/didymo-ai-webgl-v2](https://github.com/perditioinc/didymo-ai-webgl-v2) | Didymo AI WebGL Simon Demo V2 | HTML | 2026-03-29 |
+| [perditioinc/didymo-ai-openai-tts](https://github.com/perditioinc/didymo-ai-openai-tts) | OpenAI text→speech | JavaScript | 2026-03-29 |
+| [perditioinc/v0-edm-demo-submission-website](https://github.com/perditioinc/v0-edm-demo-submission-website) | — | TypeScript | 2026-03-29 |
+| [perditioinc/whatsapp-template-generator](https://github.com/perditioinc/whatsapp-template-generator) | Creates WhatsApp Templates across multiple Phone Number IDs… | — | 2026-03-29 |
+| [perditioinc/didymo-ai-vector](https://github.com/perditioinc/didymo-ai-vector) | (vector search & upsert; can sit on Supabase or… | JavaScript | 2026-03-29 |
+| [perditioinc/18degrees-ecom](https://github.com/perditioinc/18degrees-ecom) | — | — | 2026-03-29 |
+| [perditioinc/perditio-web](https://github.com/perditioinc/perditio-web) | Perditio.com Front-end website for all various apps… | TypeScript | 2026-03-29 |
+| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-03-28 |
+| [perditioinc/didymo-ai-mini](https://github.com/perditioinc/didymo-ai-mini) | Mini Didymo.ai Go Live MVP | — | 2026-03-29 |
+| [perditioinc/didymo-ai-usage](https://github.com/perditioinc/didymo-ai-usage) | consumes usage events (Pub/Sub), aggregates per tenant/day,… | JavaScript | 2026-03-29 |
 | [perditioinc/forksync](https://github.com/perditioinc/forksync) | Tooling ⚙️: Keep your GitHub forks updated automatically.… | Python | 2026-03-23 |
+| [perditioinc/didymo-ai-webgl](https://github.com/perditioinc/didymo-ai-webgl) | Unity WebGL build of Didymo AI | HTML | 2026-03-29 |
+| [perditioinc/perditio-platform-api](https://github.com/perditioinc/perditio-platform-api) | Perditio Platform's public facing API | — | 2026-03-29 |
+| [perditioinc/digital-panda-planner](https://github.com/perditioinc/digital-panda-planner) | Digital Panda Planner Pro | JavaScript | 2026-03-29 |
 | [perditioinc/reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) | Local data ingestion and analysis scripts for Reporium :… | Python | 2026-03-26 |
+| [perditioinc/perditio-infra](https://github.com/perditioinc/perditio-infra) | Terraform/Deployment Manager configs for GCP infra (Cloud… | — | 2026-03-29 |
 | [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db) | Nightly GitHub metadata sync — powers reporium.com.… | Python | 2026-03-24 |
 | [perditioinc/portfolio](https://github.com/perditioinc/portfolio) | Portfolio of AI discovery tools, developer tooling, and… | Python | 2026-03-25 |
+| [perditioinc/didymo-ai-services-lab](https://github.com/perditioinc/didymo-ai-services-lab) | Admin Dashboard website view for testing and monitoring… | JavaScript | 2026-03-29 |
+| [perditioinc/figma-make-perditio-website-claude](https://github.com/perditioinc/figma-make-perditio-website-claude) | Perditio Marketing Website migration from Figma Make using… | TypeScript | 2026-03-29 |
+| [perditioinc/perditio-website](https://github.com/perditioinc/perditio-website) | — | HTML | 2026-03-29 |
+| [perditioinc/ticket-generator](https://github.com/perditioinc/ticket-generator) | Cloud Run microservice that generates event tickets with… | JavaScript | 2026-03-29 |
+| [perditioinc/didymo-ai-studio](https://github.com/perditioinc/didymo-ai-studio) | Didymo.ai Studio hosted on website where users can create… | JavaScript | 2026-03-29 |
+| [perditioinc/didymo-ai-agent](https://github.com/perditioinc/didymo-ai-agent) | orchestrates memory + RAG + LLM | JavaScript | 2026-03-29 |
+| [perditioinc/simon-brain](https://github.com/perditioinc/simon-brain) | Simon's digital AI twin avatar's RAG brain as a sales… | — | 2026-03-29 |
+| [perditioinc/didymo-ai-website](https://github.com/perditioinc/didymo-ai-website) | Didymo.ai landing page for leads generation using AI… | JavaScript | 2026-03-29 |
+| [perditioinc/giveaway-generator](https://github.com/perditioinc/giveaway-generator) | — Google Cloud Run microservice that generates personalized… | JavaScript | 2026-03-29 |
+| [perditioinc/didymo-ai-ptr](https://github.com/perditioinc/didymo-ai-ptr) | People Tech Revolution Didymo.ai Website | JavaScript | 2026-03-29 |
+| [perditioinc/didymo-ai-submissions-website](https://github.com/perditioinc/didymo-ai-submissions-website) | Didymo.ai Lead Generation Website – React/Vite… | — | 2026-03-29 |
+| [perditioinc/whatsapp-webhook](https://github.com/perditioinc/whatsapp-webhook) | Cloud Run webhook service for WhatsApp Flows. Handles… | JavaScript | 2026-03-29 |
+| [perditioinc/perditio-figma-website](https://github.com/perditioinc/perditio-figma-website) | — | TypeScript | 2026-03-29 |
 | [perditioinc/reporium-roadmap](https://github.com/perditioinc/reporium-roadmap) | Public product roadmap for reporium.com — auto-updated… | Python | 2026-03-25 |
+| [perditioinc/didymo-ai-gcp-tts](https://github.com/perditioinc/didymo-ai-gcp-tts) | Didymo.ai Google Cloud Platform text-to-speech | JavaScript | 2026-03-29 |
 | [perditioinc/reporium](https://github.com/perditioinc/reporium) | Your GitHub repos as a living AI-native knowledge graph… | TypeScript | 2026-03-26 |
+| [perditioinc/perditio-services](https://github.com/perditioinc/perditio-services) | All internal, private microservices | — | 2026-03-29 |
+| [perditioinc/ideas-2026](https://github.com/perditioinc/ideas-2026) | A collection of ideas for 2026 | — | 2026-03-29 |
 | [perditioinc/reporium-dataset](https://github.com/perditioinc/reporium-dataset) | Public dataset mirror for reporium.com — nightly-updated AI… | Python | 2026-03-25 |
 
 ## Forked AI Repos
@@ -1502,6 +1541,43 @@
 | [coderextreme/JSONvirse](https://github.com/coderextreme/JSONvirse) | 1 | 1 | JavaScript | Initially, a multiuser system for research, design,… |
 | [Ahmed-Islam-AI/PPE-Detection-for-Construction-site-workers](https://github.com/Ahmed-Islam-AI/PPE-Detection-for-Construction-site-workers) | 1 | 1 | Jupyter Notebook | AI-powered safety monitoring system for construction… |
 | [shimmyshimmer/sbeta](https://github.com/shimmyshimmer/sbeta) | — | 46 | Jupyter Notebook | Unsloth Studio |
+| [perditioinc/llm.c](https://github.com/perditioinc/llm.c) | — | — | Cuda | LLM training in simple, raw C/CUDA |
+| [perditioinc/vllm-turboquant](https://github.com/perditioinc/vllm-turboquant) | — | — | Python | vLLM 0.18.1rc1 with TurboQuant |
+| [perditioinc/flash-attention](https://github.com/perditioinc/flash-attention) | — | — | Python | Fast and memory-efficient exact attention |
+| [perditioinc/NeMo-Guardrails](https://github.com/perditioinc/NeMo-Guardrails) | — | — | Python | NeMo Guardrails is an open-source toolkit for easily… |
+| [perditioinc/twenty](https://github.com/perditioinc/twenty) | — | — | TypeScript | Building a modern alternative to Salesforce, powered… |
+| [perditioinc/codebase-to-course](https://github.com/perditioinc/codebase-to-course) | — | — | — | A Claude Code skill that turns any codebase into a… |
+| [perditioinc/insanely-fast-whisper](https://github.com/perditioinc/insanely-fast-whisper) | — | — | Jupyter Notebook | — |
+| [perditioinc/data-engineering-zoomcamp](https://github.com/perditioinc/data-engineering-zoomcamp) | — | — | Jupyter Notebook | Data Engineering Zoomcamp is a free 9-week course on… |
+| [perditioinc/pinecone-python-client](https://github.com/perditioinc/pinecone-python-client) | — | — | Python | The Pinecone Python client  |
+| [perditioinc/atlassian-mcp-server](https://github.com/perditioinc/atlassian-mcp-server) | — | — | JavaScript | Remote MCP Server that securely connects Jira and… |
+| [perditioinc/gitagent](https://github.com/perditioinc/gitagent) | — | — | TypeScript | A framework-agnostic, git-native standard for defining… |
+| [perditioinc/n8n_](https://github.com/perditioinc/n8n_) | — | — | TypeScript | World's first n8n client that manage workflow… |
+| [perditioinc/dinov3](https://github.com/perditioinc/dinov3) | — | — | Jupyter Notebook | Reference PyTorch implementation and models for DINOv3 |
+| [perditioinc/cypress](https://github.com/perditioinc/cypress) | — | — | TypeScript | Fast, easy and reliable testing for anything that runs… |
+| [perditioinc/Grounded-Segment-Anything](https://github.com/perditioinc/Grounded-Segment-Anything) | — | — | Jupyter Notebook | Grounded SAM: Marrying Grounding DINO with Segment… |
+| [perditioinc/tribev2](https://github.com/perditioinc/tribev2) | — | — | Jupyter Notebook | This repository contains the code to train and… |
+| [perditioinc/dokploy](https://github.com/perditioinc/dokploy) | — | — | TypeScript | Open Source Alternative to Vercel, Netlify and Heroku. |
+| [perditioinc/InternNav](https://github.com/perditioinc/InternNav) | — | — | Jupyter Notebook | InternRobotics' open platform for building generalized… |
+| [perditioinc/wrenai](https://github.com/perditioinc/wrenai) | — | — | TypeScript | ⚡️ GenBI (Generative BI) queries any database in… |
+| [perditioinc/agentscope](https://github.com/perditioinc/agentscope) | — | — | Python | Build and run agents you can see, understand and trust. |
+| [perditioinc/pdf.js](https://github.com/perditioinc/pdf.js) | — | — | JavaScript | PDF Reader in JavaScript |
+| [perditioinc/PyMuPDF](https://github.com/perditioinc/PyMuPDF) | — | — | Python | PyMuPDF is a high performance Python library for data… |
+| [perditioinc/claude-code-reverse](https://github.com/perditioinc/claude-code-reverse) | — | — | JavaScript | A Tool to Visualize Claude Code's LLM Interactions |
+| [perditioinc/skill](https://github.com/perditioinc/skill) | — | — | Python | PinchBench is a benchmarking system for evaluating LLM… |
+| [perditioinc/dexter](https://github.com/perditioinc/dexter) | — | — | TypeScript | An autonomous agent for deep financial research |
+| [perditioinc/AI-Scientist](https://github.com/perditioinc/AI-Scientist) | — | — | Jupyter Notebook | The AI Scientist: Towards Fully Automated Open-Ended… |
+| [perditioinc/planka](https://github.com/perditioinc/planka) | — | — | JavaScript | PLANKA is the Kanban-style project mastering tool for… |
+| [perditioinc/marketingskills](https://github.com/perditioinc/marketingskills) | — | — | JavaScript | Marketing skills for Claude Code and AI agents. CRO,… |
+| [perditioinc/three.js](https://github.com/perditioinc/three.js) | — | — | JavaScript | JavaScript 3D Library. |
+| [perditioinc/oh-my-claudecode](https://github.com/perditioinc/oh-my-claudecode) | — | — | TypeScript | Teams-first Multi-agent orchestration for Claude Code |
+| [perditioinc/arcana](https://github.com/perditioinc/arcana) | — | — | Rust | Agent-first data catalog. MCP server that gives AI… |
+| [perditioinc/norma-core](https://github.com/perditioinc/norma-core) | — | — | Go | Physical Operations Platform |
+| [perditioinc/melange_heimdall](https://github.com/perditioinc/melange_heimdall) | — | — | Swift | An on-device guardian for LLM API calls — safety,… |
+| [perditioinc/Baileys](https://github.com/perditioinc/Baileys) | — | — | JavaScript | Socket-based TS/JavaScript API for WhatsApp Web |
+| [perditioinc/baml](https://github.com/perditioinc/baml) | — | — | Rust | The AI framework that adds the engineering to prompt… |
+| [perditioinc/interpret](https://github.com/perditioinc/interpret) | — | — | C++ | Fit interpretable models. Explain blackbox machine… |
+| [perditioinc/scion](https://github.com/perditioinc/scion) | — | — | Go | — |
 
 ## Top Repos by Stars
 
@@ -1526,7 +1602,7 @@
 
 | Component | Status |
 |-----------|--------|
-| Repo tracking | Active — 1,468 repos, nightly sync |
+| Repo tracking | Active — 1,544 repos, nightly sync |
 | Language breakdown | Active — 1 languages tracked |
 | AI enrichment categories | Not yet active — ingestion pipeline not running |
 | README summaries | Not yet active — ingestion pipeline not running |
