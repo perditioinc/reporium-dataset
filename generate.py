@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import math
 import os
@@ -23,6 +24,9 @@ REPORIUM_API_URL = os.getenv("REPORIUM_API_URL", "")
 TIMEOUT = 15
 FORK_TABLE_LIMIT = 100
 FULL_PARTITION_SIZE = 10_000
+LEGACY_REPO_ALIASES = {
+    "perditioinc/repo-intelligence": "perditioinc/reporium-scoring",
+}
 
 
 # ── API fetching ───────────────────────────────────────────────────────────────
@@ -126,6 +130,16 @@ def _lang_list(languages: dict[str, int]) -> str:
     """Top 10 languages as a markdown bullet list."""
     items = list(languages.items())[:10]
     return "\n".join(f"- **{lang}**: {count:,} repos" for lang, count in items)
+
+
+def _canonical_repo_identity(owner: str, name: str, github_url: Optional[str] = None) -> tuple[str, str, str]:
+    """Normalize legacy repo names and URLs to the current canonical identity."""
+    full_name = f"{owner}/{name}" if owner and name else ""
+    canonical_full_name = LEGACY_REPO_ALIASES.get(full_name, full_name)
+    if "/" in canonical_full_name:
+        owner, name = canonical_full_name.split("/", 1)
+    canonical_url = f"https://github.com/{canonical_full_name}" if canonical_full_name else (github_url or "")
+    return owner, name, canonical_url
 
 
 def _personal_repos_table(repos: list[dict]) -> str:
@@ -350,7 +364,6 @@ async def _fetch_fallback_partitions(total_repos: int, token: str) -> list[dict]
     if total_repos <= 0:
         return []
 
-    import asyncio
 
     partition_count = max(1, math.ceil(total_repos / FULL_PARTITION_SIZE))
     urls = [
@@ -374,7 +387,6 @@ async def _fetch_fallback(token: str) -> tuple[Optional[dict], Optional[list]]:
     Converts reporium-db schema to the same shape build_readme expects.
     Used when REPORIUM_API_URL is not configured.
     """
-    import asyncio
 
     index = await _db_get(f"{_DB_RAW_BASE}/index.json", token)
 
@@ -430,7 +442,6 @@ async def main() -> None:
     Tries reporium-api first; falls back to reporium-db raw files if the
     API URL is not configured or the request fails.
     """
-    import asyncio
 
     t0 = time.monotonic()
     api_url = REPORIUM_API_URL
@@ -456,6 +467,5 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    import asyncio
 
     asyncio.run(main())
