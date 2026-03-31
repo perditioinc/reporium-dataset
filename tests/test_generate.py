@@ -10,6 +10,8 @@ import respx
 from generate import (
     _api_get,
     _fetch_all_repos,
+    _fetch_fallback,
+    _fetch_fallback_partitions,
     _fetch_stats,
     _fork_display,
     _freshness_label,
@@ -259,3 +261,43 @@ async def test_fetch_stats_returns_none_on_failure():
     respx.get(f"{API_BASE}/library").mock(side_effect=httpx.ConnectError("refused"))
     result = await _fetch_stats(API_BASE)
     assert result is None
+
+
+@respx.mock
+async def test_fetch_fallback_partitions_reads_all_needed_partitions():
+    """Fallback should fetch every full dataset partition implied by total_repos."""
+    respx.get("https://raw.githubusercontent.com/perditioinc/reporium-db/main/data/full/repos_0000.json").mock(
+        return_value=httpx.Response(200, json=[{"nameWithOwner": "org/repo-1"}])
+    )
+    respx.get("https://raw.githubusercontent.com/perditioinc/reporium-db/main/data/full/repos_0001.json").mock(
+        return_value=httpx.Response(200, json=[{"nameWithOwner": "org/repo-2"}])
+    )
+
+    repos = await _fetch_fallback_partitions(10001, token="")
+    assert [repo["nameWithOwner"] for repo in repos] == ["org/repo-1", "org/repo-2"]
+
+
+@respx.mock
+async def test_fetch_fallback_uses_partition_count_from_index():
+    """Fallback end-to-end should aggregate repos from all declared partitions."""
+    respx.get("https://raw.githubusercontent.com/perditioinc/reporium-db/main/data/index.json").mock(
+        return_value=httpx.Response(
+            200,
+            json={
+                "meta": {"total": 10001, "last_updated": "2026-03-23T00:00:00+00:00"},
+                "languages": {"Python": 2},
+            },
+        )
+    )
+    respx.get("https://raw.githubusercontent.com/perditioinc/reporium-db/main/data/full/repos_0000.json").mock(
+        return_value=httpx.Response(200, json=[{"nameWithOwner": "org/repo-1", "description": "", "isFork": False}])
+    )
+    respx.get("https://raw.githubusercontent.com/perditioinc/reporium-db/main/data/full/repos_0001.json").mock(
+        return_value=httpx.Response(200, json=[{"nameWithOwner": "org/repo-2", "description": "", "isFork": True}])
+    )
+
+    stats, repos = await _fetch_fallback(token="")
+    assert stats is not None
+    assert stats["total_repos"] == 10001
+    assert repos is not None
+    assert len(repos) == 2
