@@ -37,8 +37,8 @@
 | [perditioinc/reporium-system-design](https://github.com/perditioinc/reporium-system-design) | Architecture decisions, tradeoffs, CAP theorem analysis,… | Python | 2026-03-21 |
 | [perditioinc/reporium-metrics](https://github.com/perditioinc/reporium-metrics) | Platform performance tracking over time — ASCII trend… | Python | 2026-03-25 |
 | [perditioinc/reporium-api](https://github.com/perditioinc/reporium-api) | Backend API for Reporium : read/write access to repository… | Python | 2026-03-26 |
-| [perditioinc/repo-intelligence](https://github.com/perditioinc/repo-intelligence) | Score any GitHub repo 0-100 — README, activity, community,… | Python | 2026-03-20 |
-| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-04-03 |
+| [perditioinc/repo-intelligence](https://github.com/perditioinc/repo-intelligence) | Score any GitHub repo 0-100 — README, activity, community,… | Python | 2026-04-07 |
+| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-04-07 |
 | [perditioinc/forksync](https://github.com/perditioinc/forksync) | Tooling ⚙️: Keep your GitHub forks updated automatically.… | Python | 2026-03-23 |
 | [perditioinc/reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) | Local data ingestion and analysis scripts for Reporium :… | Python | 2026-03-26 |
 | [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db) | Nightly GitHub metadata sync — powers reporium.com.… | Python | 2026-03-24 |
@@ -92,7 +92,7 @@
 | [Shubhamsaboo/awesome-llm-apps](https://github.com/Shubhamsaboo/awesome-llm-apps) | 104,354 | 15,227 | Python | Collection of awesome LLM apps with AI Agents and RAG… |
 | [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | 103,250 | 6,787 | TypeScript | 🔥 The Web Data API for AI - Turn entire websites into… |
 | [microsoft/terminal](https://github.com/microsoft/terminal) | 102,489 | 9,176 | C++ | The new Windows Terminal and the original Windows… |
-| [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) | 102,469 | 16,602 | Python | — |
+| [deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) | 102,469 | 16,602 | Python | DeepSeek-V3 is a large language model developed by… |
 | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | 100,917 | 16,250 | C++ | LLM inference in C/C++ |
 | [supabase/supabase](https://github.com/supabase/supabase) | 100,124 | 11,957 | TypeScript | The Postgres development platform. Supabase gives you… |
 | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | 99,490 | 12,726 | TypeScript | An open-source AI agent that brings the power of… |
@@ -101,7 +101,7 @@
 | [immich-app/immich](https://github.com/immich-app/immich) | 96,198 | 5,235 | TypeScript | High performance self-hosted photo and video… |
 | [microsoft/Web-Dev-For-Beginners](https://github.com/microsoft/Web-Dev-For-Beginners) | 95,520 | 15,316 | JavaScript | 24 Lessons, 12 Weeks, Get Started as a Web Developer |
 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 93,202 | 5,614 | Python | Python tool for converting files and office documents… |
-| [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) | 91,984 | 11,743 | — | — |
+| [deepseek-ai/DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) | 91,984 | 11,743 | — | DeepSeek-R1 appears to be an AI model or framework… |
 | [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch) | 89,504 | 13,666 | Jupyter Notebook | Implement a ChatGPT-like LLM in PyTorch from scratch,… |
 | [hacksider/Deep-Live-Cam](https://github.com/hacksider/Deep-Live-Cam) | 87,679 | 12,713 | Python | real time face swap and one-click video deepfake with… |
 | [ChatGPTNextWeb/NextChat](https://github.com/ChatGPTNextWeb/NextChat) | 87,618 | 59,945 | TypeScript | ✨ Light and Fast AI Assistant. Support: Web - iOS -… |
@@ -453,7 +453,7 @@
 | [wandb/openui](https://github.com/wandb/openui) | 22,223 | 2,051 | TypeScript | OpenUI let's you describe UI using your imagination,… |
 | [BuilderIO/gpt-crawler](https://github.com/BuilderIO/gpt-crawler) | 22,222 | 2,385 | TypeScript | Crawl a site to generate knowledge files to create… |
 | [PromtEngineer/localGPT](https://github.com/PromtEngineer/localGPT) | 22,212 | 2,486 | Python | Chat with your documents on your local device using… |
-| [yoheinakajima/babyagi](https://github.com/yoheinakajima/babyagi) | 22,207 | 2,844 | Python | — |
+| [yoheinakajima/babyagi](https://github.com/yoheinakajima/babyagi) | 22,207 | 2,844 | Python | BabyAGI is an AI-powered task management system that… |
 | [onyx-dot-app/onyx](https://github.com/onyx-dot-app/onyx) | 22,176 | 2,997 | Python | Open Source AI Platform - AI Chat with advanced… |
 | [PrefectHQ/prefect](https://github.com/PrefectHQ/prefect) | 22,027 | 2,197 | Python | Prefect is a workflow orchestration framework for… |
 | [dolthub/dolt](https://github.com/dolthub/dolt) | 21,899 | 720 | Go | Dolt – Git for Data |
@@ -678,7 +678,7 @@
 | [JoeanAmier/TikTokDownloader](https://github.com/JoeanAmier/TikTokDownloader) | 13,837 | 2,385 | Python | TikTok… |
 | [visenger/awesome-mlops](https://github.com/visenger/awesome-mlops) | 13,836 | 2,039 | — | A curated list of references for MLOps  |
 | [electerm/electerm](https://github.com/electerm/electerm) | 13,824 | 1,106 | JavaScript | 📻Terminal/ssh/sftp/ftp/telnet/serialport/RDP/VNC/Spice… |
-| [google/A2UI](https://github.com/google/A2UI) | 13,791 | 1,051 | TypeScript | — |
+| [google/A2UI](https://github.com/google/A2UI) | 13,791 | 1,051 | TypeScript | A2UI is a Google project focused on… |
 | [carla-simulator/carla](https://github.com/carla-simulator/carla) | 13,787 | 4,506 | C++ | Open-source simulator for autonomous driving research. |
 | [hmjz100/LinkSwift](https://github.com/hmjz100/LinkSwift) | 13,774 | 801 | JavaScript | 一个基于 JavaScript 的网盘文件下载地址获取工具。基于【网盘直链下载助手】修改 ，支持 百度网盘… |
 | [wasp-lang/open-saas](https://github.com/wasp-lang/open-saas) | 13,761 | 1,590 | TypeScript | A 100% free modern JS SaaS boilerplate (React, NodeJS,… |
@@ -720,12 +720,12 @@
 | [zai-org/CogVideo](https://github.com/zai-org/CogVideo) | 12,584 | 1,268 | Python | text and image to video generation: CogVideoX (2024)… |
 | [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core) | 12,507 | 2,335 | Python | dbt enables data analysts and engineers to transform… |
 | [web-infra-dev/midscene](https://github.com/web-infra-dev/midscene) | 12,492 | 925 | TypeScript | AI-powered, vision-driven UI automation for every… |
-| [andrewyng/context-hub](https://github.com/andrewyng/context-hub) | 12,492 | 1,087 | JavaScript | — |
+| [andrewyng/context-hub](https://github.com/andrewyng/context-hub) | 12,492 | 1,087 | JavaScript | I cannot access the GitHub repository content to… |
 | [puckeditor/puck](https://github.com/puckeditor/puck) | 12,447 | 875 | TypeScript | Create your own AI page builder |
 | [khangich/machine-learning-interview](https://github.com/khangich/machine-learning-interview) | 12,436 | 2,005 | — | Machine Learning Interviews from FAANG, Snapchat,… |
 | [T8RIN/ImageToolbox](https://github.com/T8RIN/ImageToolbox) | 12,367 | 532 | Kotlin | 🖼️ Image Toolbox is a powerful app for advanced image… |
 | [neuml/txtai](https://github.com/neuml/txtai) | 12,361 | 798 | Python | 💡 All-in-one AI framework for semantic search, LLM… |
-| [Vaibhavs10/insanely-fast-whisper](https://github.com/Vaibhavs10/insanely-fast-whisper) | 12,313 | 895 | Jupyter Notebook | — |
+| [Vaibhavs10/insanely-fast-whisper](https://github.com/Vaibhavs10/insanely-fast-whisper) | 12,313 | 895 | Jupyter Notebook | Insanely Fast Whisper is an optimized implementation… |
 | [willwulfken/MidJourney-Styles-and-Keywords-Reference](https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference) | 12,282 | 1,652 | — | A reference containing Styles and Keywords that you… |
 | [dair-ai/ML-Papers-of-the-Week](https://github.com/dair-ai/ML-Papers-of-the-Week) | 12,271 | 768 | — | 🔥Highlighting the top ML papers every week. |
 | [bentoml/OpenLLM](https://github.com/bentoml/OpenLLM) | 12,270 | 805 | Python | Run any open-source LLMs, such as DeepSeek and Llama,… |
@@ -813,7 +813,7 @@
 | [KalyanKS-NLP/llm-engineer-toolkit](https://github.com/KalyanKS-NLP/llm-engineer-toolkit) | 10,069 | 1,599 | — | A curated list of  120+ LLM libraries category wise.  |
 | [goldmansachs/gs-quant](https://github.com/goldmansachs/gs-quant) | 10,039 | 1,321 | Jupyter Notebook | Python toolkit for quantitative finance |
 | [jsvine/pdfplumber](https://github.com/jsvine/pdfplumber) | 10,035 | 875 | Python | Plumb a PDF for detailed information about each char,… |
-| [huggingface/skills](https://github.com/huggingface/skills) | 10,023 | 609 | Python | — |
+| [huggingface/skills](https://github.com/huggingface/skills) | 10,023 | 609 | Python | This repository contains a collection of AI skills and… |
 | [Netflix/metaflow](https://github.com/Netflix/metaflow) | 10,006 | 1,255 | Python | Build, Manage and Deploy AI/ML Systems |
 | [aden-hive/hive](https://github.com/aden-hive/hive) | 10,006 | 5,605 | Python | Outcome driven agent development framework that evolves |
 | [facebookresearch/dinov3](https://github.com/facebookresearch/dinov3) | 10,005 | 800 | Jupyter Notebook | Reference PyTorch implementation and models for DINOv3 |
@@ -846,7 +846,7 @@
 | [ahrm/sioyek](https://github.com/ahrm/sioyek) | 9,321 | 328 | C | Sioyek is a PDF viewer with a focus on textbooks and… |
 | [unit8co/darts](https://github.com/unit8co/darts) | 9,291 | 993 | Python | A python library for user-friendly forecasting and… |
 | [huseinzol05/Stock-Prediction-Models](https://github.com/huseinzol05/Stock-Prediction-Models) | 9,279 | 3,020 | Jupyter Notebook | Gathers machine learning and deep learning models for… |
-| [pascalorg/editor](https://github.com/pascalorg/editor) | 9,272 | 1,191 | TypeScript | — |
+| [pascalorg/editor](https://github.com/pascalorg/editor) | 9,272 | 1,191 | TypeScript | Unable to analyze repository content as no README or… |
 | [nasa-jpl/open-source-rover](https://github.com/nasa-jpl/open-source-rover) | 9,226 | 1,449 | Prolog | A build-it-yourself, 6-wheel rover based on the rovers… |
 | [alibaba/zvec](https://github.com/alibaba/zvec) | 9,225 | 529 | C++ | A lightweight, lightning-fast, in-process vector… |
 | [thewhiteh4t/seeker](https://github.com/thewhiteh4t/seeker) | 9,202 | 2,139 | CSS | Accurately Locate Smartphones using Social Engineering  |
@@ -863,7 +863,7 @@
 | [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys) | 8,837 | 2,856 | JavaScript | Socket-based TS/JavaScript API for WhatsApp Web |
 | [fmhy/edit](https://github.com/fmhy/edit) | 8,825 | 2,364 | JavaScript | Make changes to FMHY |
 | [dusty-nv/jetson-inference](https://github.com/dusty-nv/jetson-inference) | 8,792 | 3,094 | C++ | Hello AI World guide to deploying deep-learning… |
-| [graviraja/MLOps-Basics](https://github.com/graviraja/MLOps-Basics) | 8,789 | 1,745 | Jupyter Notebook | — |
+| [graviraja/MLOps-Basics](https://github.com/graviraja/MLOps-Basics) | 8,789 | 1,745 | Jupyter Notebook | MLOps-Basics is an educational repository that… |
 | [NVIDIA/vid2vid](https://github.com/NVIDIA/vid2vid) | 8,718 | 1,207 | Python | Pytorch implementation of our method for… |
 | [HKUDS/AutoAgent](https://github.com/HKUDS/AutoAgent) | 8,711 | 1,228 | Python | "AutoAgent: Fully-Automated and Zero-Code LLM Agent… |
 | [apify/crawlee-python](https://github.com/apify/crawlee-python) | 8,697 | 704 | Python | Crawlee—A web scraping and browser automation library… |
@@ -918,9 +918,9 @@
 | [microsoft/TinyTroupe](https://github.com/microsoft/TinyTroupe) | 7,371 | 646 | Jupyter Notebook | LLM-powered multiagent persona simulation for… |
 | [NirDiamant/Prompt_Engineering](https://github.com/NirDiamant/Prompt_Engineering) | 7,353 | 949 | Jupyter Notebook | This repository offers a comprehensive collection of… |
 | [asg017/sqlite-vec](https://github.com/asg017/sqlite-vec) | 7,344 | 300 | C | A vector search SQLite extension that runs anywhere! |
-| [openai/guided-diffusion](https://github.com/openai/guided-diffusion) | 7,331 | 897 | Python | — |
+| [openai/guided-diffusion](https://github.com/openai/guided-diffusion) | 7,331 | 897 | Python | This repository contains the official implementation… |
 | [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | 7,223 | 1,009 | Python | 🚀🎬 ShortGPT - Experimental AI framework for youtube… |
-| [anthropics/financial-services-plugins](https://github.com/anthropics/financial-services-plugins) | 7,202 | 886 | Python | — |
+| [anthropics/financial-services-plugins](https://github.com/anthropics/financial-services-plugins) | 7,202 | 886 | Python | A Python repository forked from… |
 | [InternLM/InternLM](https://github.com/InternLM/InternLM) | 7,177 | 509 | Python | Official release of InternLM series (InternLM,… |
 | [zai-org/GLM-4](https://github.com/zai-org/GLM-4) | 7,074 | 616 | Python | GLM-4 series: Open Multilingual Multimodal Chat LMs -… |
 | [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | 7,044 | 399 | Python | Hindsight: Agent Memory That  Learns |
@@ -931,11 +931,11 @@
 | [arcee-ai/mergekit](https://github.com/arcee-ai/mergekit) | 6,938 | 682 | Python | Tools for merging pretrained large language models. |
 | [nullclaw/nullclaw](https://github.com/nullclaw/nullclaw) | 6,931 | 821 | Zig | Fastest, smallest, and fully autonomous AI assistant… |
 | [flyteorg/flyte](https://github.com/flyteorg/flyte) | 6,908 | 800 | Go | Dynamic, resilient AI orchestration. Coordinate data,… |
-| [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit) | 6,887 | 1,357 | TypeScript | — |
+| [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit) | 6,887 | 1,357 | TypeScript | Unable to analyze repository contents as no README or… |
 | [feast-dev/feast](https://github.com/feast-dev/feast) | 6,878 | 1,263 | Python | The Open Source Feature Store for AI/ML |
 | [openai/point-e](https://github.com/openai/point-e) | 6,873 | 798 | Python | Point cloud diffusion for 3D model synthesis |
 | [vespa-engine/vespa](https://github.com/vespa-engine/vespa) | 6,854 | 706 | Java | AI + Data, online. https://vespa.ai |
-| [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 6,853 | 1,655 | TypeScript | — |
+| [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 6,853 | 1,655 | TypeScript | Claude Code Action is a GitHub Action that integrates… |
 | [pliang279/awesome-multimodal-ml](https://github.com/pliang279/awesome-multimodal-ml) | 6,849 | 898 | — | Reading list for research topics in multimodal machine… |
 | [InternLM/MindSearch](https://github.com/InternLM/MindSearch) | 6,828 | 680 | JavaScript | 🔍 An LLM-based Multi-agent Framework of Web Search… |
 | [interpretml/interpret](https://github.com/interpretml/interpret) | 6,823 | 783 | C++ | Fit interpretable models. Explain blackbox machine… |
@@ -949,7 +949,7 @@
 | [guardrails-ai/guardrails](https://github.com/guardrails-ai/guardrails) | 6,604 | 557 | Python | Adding guardrails to large language models. |
 | [grab/cursor-talk-to-figma-mcp](https://github.com/grab/cursor-talk-to-figma-mcp) | 6,603 | 705 | JavaScript | TalkToFigma: MCP integration between AI Agent (Cursor,… |
 | [NVIDIA/Isaac-GR00T](https://github.com/NVIDIA/Isaac-GR00T) | 6,578 | 1,096 | Jupyter Notebook | NVIDIA Isaac GR00T N1.6 -  A Foundation Model for… |
-| [TelegramMessenger/MTProxy](https://github.com/TelegramMessenger/MTProxy) | 6,542 | 1,077 | C | — |
+| [TelegramMessenger/MTProxy](https://github.com/TelegramMessenger/MTProxy) | 6,542 | 1,077 | C | MTProxy is a high-performance proxy server for… |
 | [Blaizzy/mlx-audio](https://github.com/Blaizzy/mlx-audio) | 6,531 | 528 | Python | A text-to-speech (TTS), speech-to-text (STT) and… |
 | [tencent-ailab/IP-Adapter](https://github.com/tencent-ailab/IP-Adapter) | 6,513 | 423 | Jupyter Notebook | The image prompt adapter is designed to enable a… |
 | [crestalnetwork/intentkit](https://github.com/crestalnetwork/intentkit) | 6,499 | 702 | Python | IntentKit is an open-source, self-hosted cloud agent… |
@@ -972,7 +972,7 @@
 | [souzatharsis/podcastfy](https://github.com/souzatharsis/podcastfy) | 6,165 | 716 | Python | An Open Source Python alternative to NotebookLM's… |
 | [microsoft/TaskWeaver](https://github.com/microsoft/TaskWeaver) | 6,134 | 769 | Python | The first "code-first" agent framework for seamlessly… |
 | [multimodal-art-projection/YuE](https://github.com/multimodal-art-projection/YuE) | 6,115 | 721 | Python | YuE: Open Full-song Music Generation Foundation Model,… |
-| [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 6,100 | 838 | Python | — |
+| [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 6,100 | 838 | Python | The Claude Agent SDK for Python is an official SDK… |
 | [GoogleCloudPlatform/agent-starter-pack](https://github.com/GoogleCloudPlatform/agent-starter-pack) | 6,062 | 1,412 | Python | A collection of production-ready Generative AI Agent… |
 | [FederatedAI/FATE](https://github.com/FederatedAI/FATE) | 6,059 | 1,566 | Python | An Industrial Grade Federated Learning Framework |
 | [mindee/doctr](https://github.com/mindee/doctr) | 5,998 | 634 | Python | docTR (Document Text Recognition) - a seamless,… |
@@ -1001,7 +1001,7 @@
 | [strands-agents/sdk-python](https://github.com/strands-agents/sdk-python) | 5,515 | 762 | Python | A model-driven approach to building AI agents in just… |
 | [jellyfin-archive/jellyfin-desktop-qt](https://github.com/jellyfin-archive/jellyfin-desktop-qt) | 5,491 | 511 | C++ | Jellyfin Desktop Client |
 | [ed-donner/llm_engineering](https://github.com/ed-donner/llm_engineering) | 5,489 | 5,305 | Jupyter Notebook | Repo to accompany my mastering LLM engineering course |
-| [jamwithai/production-agentic-rag-course](https://github.com/jamwithai/production-agentic-rag-course) | 5,457 | 1,299 | Python | — |
+| [jamwithai/production-agentic-rag-course](https://github.com/jamwithai/production-agentic-rag-course) | 5,457 | 1,299 | Python | A production-ready course on building Agentic RAG… |
 | [Helicone/helicone](https://github.com/Helicone/helicone) | 5,444 | 504 | TypeScript | 🧊 Open source LLM observability platform. One line of… |
 | [AgentOps-AI/agentops](https://github.com/AgentOps-AI/agentops) | 5,426 | 557 | Python | Python SDK for AI agent monitoring, LLM cost tracking,… |
 | [RfidResearchGroup/proxmark3](https://github.com/RfidResearchGroup/proxmark3) | 5,404 | 1,293 | C | Iceman Fork - Proxmark3 |
@@ -1048,7 +1048,7 @@
 | [dusty-nv/jetson-containers](https://github.com/dusty-nv/jetson-containers) | 4,544 | 825 | Jupyter Notebook | Machine Learning Containers for NVIDIA Jetson and… |
 | [andrewekhalel/MLQuestions](https://github.com/andrewekhalel/MLQuestions) | 4,542 | 741 | — | Machine Learning and Computer Vision Engineer -… |
 | [pytorch/executorch](https://github.com/pytorch/executorch) | 4,461 | 915 | Python | On-device AI across mobile, embedded and edge for… |
-| [openai/simple-evals](https://github.com/openai/simple-evals) | 4,424 | 481 | Python | — |
+| [openai/simple-evals](https://github.com/openai/simple-evals) | 4,424 | 481 | Python | Simple-evals is OpenAI's framework for evaluating… |
 | [ragapp/ragapp](https://github.com/ragapp/ragapp) | 4,423 | 480 | TypeScript | The easiest way to use Agentic RAG in any enterprise |
 | [truefoundry/cognita](https://github.com/truefoundry/cognita) | 4,417 | 393 | Python | RAG (Retrieval Augmented Generation) Framework for… |
 | [Facepunch/sbox-public](https://github.com/Facepunch/sbox-public) | 4,368 | 340 | C# | s&box is a modern game engine, built on Valve's Source… |
@@ -1060,7 +1060,7 @@
 | [ourownstory/neural_prophet](https://github.com/ourownstory/neural_prophet) | 4,263 | 512 | Python | NeuralProphet: A simple forecasting package |
 | [openai/harmony](https://github.com/openai/harmony) | 4,251 | 264 | Rust | Renderer for the harmony response format to be used… |
 | [microsoft/AI-System](https://github.com/microsoft/AI-System) | 4,249 | 524 | Python | System for AI Education Resource. |
-| [openai/grok](https://github.com/openai/grok) | 4,243 | 580 | Python | — |
+| [openai/grok](https://github.com/openai/grok) | 4,243 | 580 | Python | This appears to be a fork of OpenAI's Grok repository… |
 | [cyberbotics/webots](https://github.com/cyberbotics/webots) | 4,243 | 2,003 | C++ | Webots Robot Simulator |
 | [amanchadha/coursera-deep-learning-specialization](https://github.com/amanchadha/coursera-deep-learning-specialization) | 4,238 | 2,645 | Jupyter Notebook | Notes, programming assignments and quizzes from all… |
 | [openai/plugins-quickstart](https://github.com/openai/plugins-quickstart) | 4,236 | 714 | Python | Get a ChatGPT plugin up and running in under 5 minutes! |
@@ -1110,7 +1110,7 @@
 | [newton-physics/newton](https://github.com/newton-physics/newton) | 3,779 | 390 | Python | An open-source, GPU-accelerated physics simulation… |
 | [benfred/implicit](https://github.com/benfred/implicit) | 3,778 | 626 | Python | Fast Python Collaborative Filtering for Implicit… |
 | [mistralai/mistral-vibe](https://github.com/mistralai/mistral-vibe) | 3,758 | 405 | Python | Minimal CLI coding agent by Mistral |
-| [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) | 3,754 | 419 | TypeScript | — |
+| [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) | 3,754 | 419 | TypeScript | I cannot access the GitHub repository to analyze its… |
 | [predibase/lorax](https://github.com/predibase/lorax) | 3,742 | 310 | Python | Multi-LoRA inference server that scales to 1000s of… |
 | [anthropics/original_performance_takehome](https://github.com/anthropics/original_performance_takehome) | 3,740 | 855 | Python | Anthropic's original performance take-home, now open… |
 | [introlab/rtabmap](https://github.com/introlab/rtabmap) | 3,704 | 907 | C++ | RTAB-Map library and standalone application |
@@ -1170,7 +1170,7 @@
 | [tslearn-team/tslearn](https://github.com/tslearn-team/tslearn) | 3,137 | 368 | Python | The machine learning toolkit for time series analysis… |
 | [openai/mujoco-py](https://github.com/openai/mujoco-py) | 3,125 | 828 | Cython | MuJoCo is a physics engine for detailed, efficient… |
 | [docarray/docarray](https://github.com/docarray/docarray) | 3,120 | 238 | Python | Represent, send, store and search multimodal data |
-| [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | 3,118 | 579 | Python | — |
+| [anthropics/anthropic-sdk-python](https://github.com/anthropics/anthropic-sdk-python) | 3,118 | 579 | Python | The official Python SDK for Anthropic's Claude AI API,… |
 | [openai/openai-go](https://github.com/openai/openai-go) | 3,108 | 289 | Go | The official Go library for the OpenAI API |
 | [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills) | 3,103 | 274 | — | Skills for the Gemini API, SDK and model/agent… |
 | [thesysdev/openui](https://github.com/thesysdev/openui) | 3,101 | 195 | TypeScript | The Open Standard for Generative UI |
@@ -1193,12 +1193,12 @@
 | [TheCraigHewitt/seomachine](https://github.com/TheCraigHewitt/seomachine) | 2,942 | 502 | Python | A specialized Claude Code workspace for creating… |
 | [mazzzystar/Queryable](https://github.com/mazzzystar/Queryable) | 2,931 | 451 | Swift | Run OpenAI's CLIP and Apple's MobileCLIP model on iOS… |
 | [facebookresearch/habitat-lab](https://github.com/facebookresearch/habitat-lab) | 2,926 | 647 | Python | A modular high-level library to train embodied AI… |
-| [MoonshotAI/Attention-Residuals](https://github.com/MoonshotAI/Attention-Residuals) | 2,924 | 141 | — | — |
+| [MoonshotAI/Attention-Residuals](https://github.com/MoonshotAI/Attention-Residuals) | 2,924 | 141 | — | This repository appears to be related to attention… |
 | [microsoft/mcp](https://github.com/microsoft/mcp) | 2,906 | 437 | C# | Catalog of official Microsoft MCP (Model Context… |
 | [NVIDIA/MinkowskiEngine](https://github.com/NVIDIA/MinkowskiEngine) | 2,904 | 466 | Python | Minkowski Engine is an auto-diff neural network… |
 | [NVIDIA/NeMo-Retriever](https://github.com/NVIDIA/NeMo-Retriever) | 2,893 | 311 | Python | NeMo Retriever Library is a scalable,… |
 | [microsoft/genaiscript](https://github.com/microsoft/genaiscript) | 2,892 | 224 | TypeScript | Automatable GenAI Scripting |
-| [google-gemini/computer-use-preview](https://github.com/google-gemini/computer-use-preview) | 2,887 | 371 | Python | — |
+| [google-gemini/computer-use-preview](https://github.com/google-gemini/computer-use-preview) | 2,887 | 371 | Python | This repository provides a preview implementation of… |
 | [microsoft/table-transformer](https://github.com/microsoft/table-transformer) | 2,884 | 311 | Python | Table Transformer (TATR) is a deep learning model for… |
 | [google-gemma/cookbook](https://github.com/google-gemma/cookbook) | 2,873 | 476 | Jupyter Notebook | A collection of guides and examples for the Gemma open… |
 | [pytorch/audio](https://github.com/pytorch/audio) | 2,857 | 768 | Python | Data manipulation and transformation for audio signal… |
@@ -1230,7 +1230,7 @@
 | [dynobo/normcap](https://github.com/dynobo/normcap) | 2,567 | 118 | Python | OCR powered screen-capture tool to capture information… |
 | [SynkraAI/aiox-core](https://github.com/SynkraAI/aiox-core) | 2,566 | 847 | JavaScript | Synkra AIOS: AI-Orchestrated System for Full Stack… |
 | [openai/openai-dotnet](https://github.com/openai/openai-dotnet) | 2,554 | 382 | C# | The official .NET library for the OpenAI API |
-| [openai/weak-to-strong](https://github.com/openai/weak-to-strong) | 2,552 | 310 | Python | — |
+| [openai/weak-to-strong](https://github.com/openai/weak-to-strong) | 2,552 | 310 | Python | This repository implements weak-to-strong… |
 | [letta-ai/claude-subconscious](https://github.com/letta-ai/claude-subconscious) | 2,552 | 180 | TypeScript | Give Claude Code a subconscious |
 | [GoogleCloudPlatform/asl-ml-immersion](https://github.com/GoogleCloudPlatform/asl-ml-immersion) | 2,522 | 1,473 | Jupyter Notebook | This repos contains notebooks for the Advanced… |
 | [google-gemini/live-api-web-console](https://github.com/google-gemini/live-api-web-console) | 2,508 | 721 | TypeScript | A react-based starter app for using the Live API over… |
@@ -1287,13 +1287,13 @@
 | [unchihugo/FluentFlyout](https://github.com/unchihugo/FluentFlyout) | 2,106 | 79 | C# | The modern Flyout app for Windows 11, built with… |
 | [bgshih/crnn](https://github.com/bgshih/crnn) | 2,102 | 550 | Lua | Convolutional Recurrent Neural Network (CRNN) for… |
 | [google-gemini/genai-processors](https://github.com/google-gemini/genai-processors) | 2,096 | 214 | Python | GenAI Processors is a lightweight Python library that… |
-| [openai/image-gpt](https://github.com/openai/image-gpt) | 2,086 | 389 | Python | — |
+| [openai/image-gpt](https://github.com/openai/image-gpt) | 2,086 | 389 | Python | ImageGPT is a GPT-like model that generates and… |
 | [GoogleCloudPlatform/ml-design-patterns](https://github.com/GoogleCloudPlatform/ml-design-patterns) | 2,080 | 588 | Jupyter Notebook | Source code accompanying O'Reilly book: Machine… |
 | [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | 2,077 | 208 | TypeScript | The memory-first coding agent |
 | [ProsusAI/finBERT](https://github.com/ProsusAI/finBERT) | 2,067 | 512 | Jupyter Notebook | Financial Sentiment Analysis with BERT |
 | [anthropics/claude-agent-sdk-demos](https://github.com/anthropics/claude-agent-sdk-demos) | 2,063 | 291 | TypeScript | Claude Code SDK Demos |
 | [google-ai-edge/LiteRT](https://github.com/google-ai-edge/LiteRT) | 2,035 | 257 | C++ | LiteRT, successor to TensorFlow Lite. is Google's… |
-| [Circuit-Digest/ESP-Drone](https://github.com/Circuit-Digest/ESP-Drone) | 2,024 | 333 | C | — |
+| [Circuit-Digest/ESP-Drone](https://github.com/Circuit-Digest/ESP-Drone) | 2,024 | 333 | C | ESP-Drone is a drone project built using ESP32… |
 | [salu133445/musegan](https://github.com/salu133445/musegan) | 2,017 | 394 | Python | An AI for Music Generation |
 | [eloialonso/diamond](https://github.com/eloialonso/diamond) | 2,002 | 149 | Python | DIAMOND (DIffusion As a Model Of eNvironment Dreams)… |
 | [GoogleCloudPlatform/PerfKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker) | 2,001 | 550 | Python | PerfKit Benchmarker (PKB) contains a set of benchmarks… |
@@ -1353,11 +1353,11 @@
 | [openai/openai-realtime-embedded](https://github.com/openai/openai-realtime-embedded) | 1,579 | 203 | — | Instructions on how to use the Realtime API on… |
 | [DeepGraphLearning/torchdrug](https://github.com/DeepGraphLearning/torchdrug) | 1,573 | 219 | Python | A powerful and flexible machine learning platform for… |
 | [raphaelmansuy/edgequake](https://github.com/raphaelmansuy/edgequake) | 1,562 | 167 | Rust | High-performance GraphRAG inspired from LightRag… |
-| [databricks/megablocks](https://github.com/databricks/megablocks) | 1,552 | 225 | Python | — |
+| [databricks/megablocks](https://github.com/databricks/megablocks) | 1,552 | 225 | Python | MegaBlocks is a library for efficient training of… |
 | [PRIME-RL/SimpleVLA-RL](https://github.com/PRIME-RL/SimpleVLA-RL) | 1,549 | 95 | Python | [ICLR 2026] SimpleVLA-RL: Scaling VLA Training via… |
 | [InterDigitalInc/CompressAI](https://github.com/InterDigitalInc/CompressAI) | 1,547 | 271 | Python | A PyTorch library and evaluation platform for… |
-| [deepseek-ai/DeepSeek-V3.2-Exp](https://github.com/deepseek-ai/DeepSeek-V3.2-Exp) | 1,546 | 149 | Python | — |
-| [GoogleCloudPlatform/localllm](https://github.com/GoogleCloudPlatform/localllm) | 1,545 | 120 | Python | — |
+| [deepseek-ai/DeepSeek-V3.2-Exp](https://github.com/deepseek-ai/DeepSeek-V3.2-Exp) | 1,546 | 149 | Python | DeepSeek-V3. |
+| [GoogleCloudPlatform/localllm](https://github.com/GoogleCloudPlatform/localllm) | 1,545 | 120 | Python | A Python repository forked from… |
 | [Paulescu/hands-on-rl](https://github.com/Paulescu/hands-on-rl) | 1,545 | 187 | Jupyter Notebook | Free course that takes you from zero to Reinforcement… |
 | [GoogleCloudPlatform/cloudml-samples](https://github.com/GoogleCloudPlatform/cloudml-samples) | 1,542 | 844 | Python | Cloud ML Engine repo. Please visit the new Vertex AI… |
 | [starVLA/starVLA](https://github.com/starVLA/starVLA) | 1,526 | 181 | Python | StarVLA: A Lego-like Codebase for… |
@@ -1382,7 +1382,7 @@
 | [microsoft/edgeai-for-beginners](https://github.com/microsoft/edgeai-for-beginners) | 1,391 | 295 | Jupyter Notebook | This course is designed to guide beginners through the… |
 | [google/oss-fuzz-gen](https://github.com/google/oss-fuzz-gen) | 1,379 | 211 | Python | LLM powered fuzzing via OSS-Fuzz. |
 | [NVIDIA/VideoProcessingFramework](https://github.com/NVIDIA/VideoProcessingFramework) | 1,378 | 240 | C++ | Set of Python bindings to C++ libraries which provides… |
-| [langchain-ai/langmem](https://github.com/langchain-ai/langmem) | 1,375 | 159 | Python | — |
+| [langchain-ai/langmem](https://github.com/langchain-ai/langmem) | 1,375 | 159 | Python | LangMem is a memory management system for LangChain… |
 | [Tencent-Hunyuan/HY-WorldPlay](https://github.com/Tencent-Hunyuan/HY-WorldPlay) | 1,372 | 121 | Python | HY-World 1.5: A Systematic Framework for Interactive… |
 | [milvus-io/pymilvus](https://github.com/milvus-io/pymilvus) | 1,359 | 421 | Python | Python SDK for Milvus Vector Database |
 | [magenta/magenta-demos](https://github.com/magenta/magenta-demos) | 1,349 | 428 | Jupyter Notebook | Demonstrations of Magenta Models |
@@ -1398,7 +1398,7 @@
 | [KalyanKS-NLP/rag-zero-to-hero-guide](https://github.com/KalyanKS-NLP/rag-zero-to-hero-guide) | 1,293 | 324 | Jupyter Notebook | Comprehensive guide to learn RAG from basics to… |
 | [GoogleCloudPlatform/berglas](https://github.com/GoogleCloudPlatform/berglas) | 1,293 | 102 | Go | A tool for managing secrets on Google Cloud |
 | [google/adk-docs](https://github.com/google/adk-docs) | 1,268 | 936 | Python | An open-source, code-first toolkit for building,… |
-| [cfregly/ai-performance-engineering](https://github.com/cfregly/ai-performance-engineering) | 1,263 | 178 | Python | — |
+| [cfregly/ai-performance-engineering](https://github.com/cfregly/ai-performance-engineering) | 1,263 | 178 | Python | This repository appears to be a fork focused on AI… |
 | [ageron/handson-mlp](https://github.com/ageron/handson-mlp) | 1,263 | 428 | Jupyter Notebook | A series of Jupyter notebooks that walk you through… |
 | [melpon/wandbox](https://github.com/melpon/wandbox) | 1,257 | 108 | TypeScript | Social Compilation Service |
 | [felladrin/awesome-ai-web-search](https://github.com/felladrin/awesome-ai-web-search) | 1,256 | 99 | HTML | List of software that allows searching the web with… |
@@ -1407,7 +1407,7 @@
 | [SmythOS/sre](https://github.com/SmythOS/sre) | 1,249 | 190 | TypeScript | The SmythOS Runtime Environment (SRE) is an… |
 | [copper-project/copper-rs](https://github.com/copper-project/copper-rs) | 1,247 | 80 | Rust | Copper is an operating system for robots -  build,… |
 | [gomate-community/TrustRAG](https://github.com/gomate-community/TrustRAG) | 1,246 | 135 | Python | TrustRAG：The RAG Framework within Reliable… |
-| [anthropics/claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | 1,223 | 134 | Shell | — |
+| [anthropics/claude-agent-sdk-typescript](https://github.com/anthropics/claude-agent-sdk-typescript) | 1,223 | 134 | Shell | This is a fork of Anthropic's official Claude Agent… |
 | [magenta/magenta-studio](https://github.com/magenta/magenta-studio) | 1,221 | 193 | JavaScript | Magenta Studio is a collection of music plugins built… |
 | [wandb/examples](https://github.com/wandb/examples) | 1,201 | 300 | Jupyter Notebook | Example deep learning projects that use wandb's… |
 | [superlinear-ai/raglite](https://github.com/superlinear-ai/raglite) | 1,152 | 102 | Python | 🥤 RAGLite is a Python toolkit for Retrieval-Augmented… |
@@ -1415,7 +1415,7 @@
 | [tavily-ai/tavily-python](https://github.com/tavily-ai/tavily-python) | 1,140 | 141 | Python | The Tavily Python SDK allows for easy interaction with… |
 | [engcang/SLAM-application](https://github.com/engcang/SLAM-application) | 1,137 | 151 | C++ | LeGO-LOAM, LIO-SAM, LVI-SAM, FAST-LIO2, Faster-LIO,… |
 | [mlmed/torchxrayvision](https://github.com/mlmed/torchxrayvision) | 1,132 | 246 | Jupyter Notebook | TorchXRayVision: A library of chest X-ray datasets and… |
-| [mit-han-lab/tinyml](https://github.com/mit-han-lab/tinyml) | 1,117 | 159 | Python | — |
+| [mit-han-lab/tinyml](https://github.com/mit-han-lab/tinyml) | 1,117 | 159 | Python | A Python repository forked from mit-han-lab/tinyml. |
 | [cline/prompts](https://github.com/cline/prompts) | 1,116 | 236 | — | Library of prompts from the Cline community |
 | [NovaSearch-Team/RAG-Retrieval](https://github.com/NovaSearch-Team/RAG-Retrieval) | 1,111 | 91 | Python | Unify Efficient Fine-tuning of  RAG Retrieval,… |
 | [datadreamer-dev/DataDreamer](https://github.com/datadreamer-dev/DataDreamer) | 1,106 | 60 | Python | DataDreamer: Prompt. Generate Synthetic Data. Train &… |
@@ -1425,7 +1425,7 @@
 | [unjs/unpdf](https://github.com/unjs/unpdf) | 1,068 | 37 | TypeScript | 📄 PDF extraction and rendering across all JavaScript… |
 | [wandb/weave](https://github.com/wandb/weave) | 1,066 | 151 | Python | Weave is a toolkit for developing AI-powered… |
 | [Tencent-Hunyuan/HunyuanWorld-Mirror](https://github.com/Tencent-Hunyuan/HunyuanWorld-Mirror) | 1,057 | 102 | Python | Fast and Universal 3D reconstruction model for… |
-| [Sumanth077/Hands-On-AI-Engineering](https://github.com/Sumanth077/Hands-On-AI-Engineering) | 1,037 | 348 | Python | — |
+| [Sumanth077/Hands-On-AI-Engineering](https://github.com/Sumanth077/Hands-On-AI-Engineering) | 1,037 | 348 | Python | This repository appears to be a hands-on AI… |
 | [OpenDriveLab/UniVLA](https://github.com/OpenDriveLab/UniVLA) | 1,036 | 58 | Python | [RSS 2025] Learning to Act Anywhere with Task-centric… |
 | [Udayraj123/OMRChecker](https://github.com/Udayraj123/OMRChecker) | 1,035 | 467 | Python | Evaluate OMR sheets fast and accurately using a… |
 | [PRBonn/lidar-bonnetal](https://github.com/PRBonn/lidar-bonnetal) | 1,034 | 215 | Python | Semantic and Instance Segmentation of LiDAR point… |
@@ -1500,15 +1500,15 @@
 | [yya518/FinBERT](https://github.com/yya518/FinBERT) | 649 | 144 | Jupyter Notebook | A Pretrained BERT Model for Financial Communications.… |
 | [asimovinc/asimov-v0](https://github.com/asimovinc/asimov-v0) | 645 | 63 | — | v0 of Asimov, an open-source humanoid robot |
 | [medspacy/medspacy](https://github.com/medspacy/medspacy) | 643 | 109 | Jupyter Notebook | Library for clinical NLP with spaCy. |
-| [mem0ai/mem0-mcp](https://github.com/mem0ai/mem0-mcp) | 640 | 141 | Python | — |
+| [mem0ai/mem0-mcp](https://github.com/mem0ai/mem0-mcp) | 640 | 141 | Python | Mem0-MCP is a Model Context Protocol (MCP) server that… |
 | [landing-ai/ade-python](https://github.com/landing-ai/ade-python) | 632 | 85 | Python | Python library for Agentic Document Extraction (ADE). |
-| [hku-mars/M-detector](https://github.com/hku-mars/M-detector) | 612 | 83 | C++ | — |
+| [hku-mars/M-detector](https://github.com/hku-mars/M-detector) | 612 | 83 | C++ | M-detector is a C++ implementation for multi-object… |
 | [facebookresearch/NeuralCompression](https://github.com/facebookresearch/NeuralCompression) | 596 | 57 | Python | A collection of tools for neural compression… |
 | [engcang/vins-application](https://github.com/engcang/vins-application) | 591 | 97 | C++ | VINS-Fusion, VINS-Fisheye, OpenVINS, EnVIO, ROVIO,… |
 | [automl/NASLib](https://github.com/automl/NASLib) | 587 | 129 | Python |  NASLib is a Neural Architecture Search (NAS) library… |
 | [lumalabs/imm](https://github.com/lumalabs/imm) | 579 | 15 | Python | Official implementation of Inductive Moment Matching |
 | [nvidia-cosmos/cosmos-transfer2.5](https://github.com/nvidia-cosmos/cosmos-transfer2.5) | 573 | 87 | Python | Cosmos-Transfer2.5, built on top of Cosmos-Predict2.5,… |
-| [Snowflake-Labs/snowflake-arctic](https://github.com/Snowflake-Labs/snowflake-arctic) | 560 | 53 | Python | — |
+| [Snowflake-Labs/snowflake-arctic](https://github.com/Snowflake-Labs/snowflake-arctic) | 560 | 53 | Python | Snowflake Arctic is a family of large language models… |
 | [Snowflake-Labs/Snowflake-AI-Toolkit](https://github.com/Snowflake-Labs/Snowflake-AI-Toolkit) | 556 | 73 | Python | Snowflake AI Toolkit is an AI Accelerator and… |
 | [zli12321/Vision-Language-Models-Overview](https://github.com/zli12321/Vision-Language-Models-Overview) | 553 | 32 | HTML | A most Frontend Collection and survey of… |
 | [cedrickchee/awesome-ml-model-compression](https://github.com/cedrickchee/awesome-ml-model-compression) | 543 | 62 | — | Awesome machine learning model compression research… |
@@ -1531,7 +1531,7 @@
 | [awslabs/fullstack-solution-template-for-agentcore](https://github.com/awslabs/fullstack-solution-template-for-agentcore) | 450 | 127 | TypeScript | Flexible Fullstack solution template for… |
 | [geezacoleman/OpenWeedLocator](https://github.com/geezacoleman/OpenWeedLocator) | 448 | 85 | Python | An open-source, low-cost, image-based weed detection… |
 | [tensorflow/model-card-toolkit](https://github.com/tensorflow/model-card-toolkit) | 446 | 91 | Python | A toolkit that streamlines and automates the… |
-| [TUMFTM/CameraRadarFusionNet](https://github.com/TUMFTM/CameraRadarFusionNet) | 445 | 138 | Python | — |
+| [TUMFTM/CameraRadarFusionNet](https://github.com/TUMFTM/CameraRadarFusionNet) | 445 | 138 | Python | CameraRadarFusionNet is a deep learning framework that… |
 | [norma-core/norma-core](https://github.com/norma-core/norma-core) | 442 | 52 | Go | Physical Operations Platform |
 | [peters/horizon](https://github.com/peters/horizon) | 435 | 20 | Rust | GPU-accelerated spatial terminal observatory — manage… |
 | [github/gh-gei](https://github.com/github/gh-gei) | 434 | 136 | C# | Migration CLI for GitHub to GitHub migrations |
@@ -1545,7 +1545,7 @@
 | [frankkramer-lab/MIScnn](https://github.com/frankkramer-lab/MIScnn) | 420 | 119 | Python | A framework for Medical Image Segmentation with… |
 | [fab-jul/L3C-PyTorch](https://github.com/fab-jul/L3C-PyTorch) | 409 | 61 | Python | PyTorch Implementation of the CVPR'19 Paper "Practical… |
 | [XikunLiu-huskit/GLIO](https://github.com/XikunLiu-huskit/GLIO) | 405 | 42 | C | GLIO: Tightly-Coupled GNSS/LiDAR/IMU Integration for… |
-| [XiaomiRobotics/Xiaomi-Robotics-0](https://github.com/XiaomiRobotics/Xiaomi-Robotics-0) | 404 | 44 | Python | — |
+| [XiaomiRobotics/Xiaomi-Robotics-0](https://github.com/XiaomiRobotics/Xiaomi-Robotics-0) | 404 | 44 | Python | A Python repository forked from… |
 | [mitkox/vllm-turboquant](https://github.com/mitkox/vllm-turboquant) | 403 | 81 | Python | vLLM 0.18.1rc1 with TurboQuant |
 | [akshetP/robotics-resources](https://github.com/akshetP/robotics-resources) | 400 | 65 | HTML | A complete library of resources that caters to all… |
 | [fcakyon/content-moderation-deep-learning](https://github.com/fcakyon/content-moderation-deep-learning) | 393 | 25 | — | Deep learning based content moderation from text,… |
@@ -1564,7 +1564,7 @@
 | [url-kaist/TRAVEL](https://github.com/url-kaist/TRAVEL) | 322 | 33 | C++ | Traversable ground and above-ground object… |
 | [YibinWu/LIO-EKF](https://github.com/YibinWu/LIO-EKF) | 314 | 30 | C++ | [ICRA2024] Maybe the simplest LiDAR-inertial odometry… |
 | [maastrichtlawtech/awesome-legal-nlp](https://github.com/maastrichtlawtech/awesome-legal-nlp) | 314 | 39 | — | 📖  A curated list of LegalNLP resources from all… |
-| [GoogleCloudPlatform/scion](https://github.com/GoogleCloudPlatform/scion) | 311 | 53 | Go | — |
+| [GoogleCloudPlatform/scion](https://github.com/GoogleCloudPlatform/scion) | 311 | 53 | Go | This repository appears to be related to SCION… |
 | [lenskit/lkpy](https://github.com/lenskit/lkpy) | 309 | 73 | Python | Python recommendation toolkit |
 | [LimHyungTae/awesome-claudecode-paper-proofreading](https://github.com/LimHyungTae/awesome-claudecode-paper-proofreading) | 301 | 33 | — | Claude Code-driven research paper proofreading prompt |
 | [ed-donner/production](https://github.com/ed-donner/production) | 296 | 435 | Jupyter Notebook | Repo for my course on Generative AI and Agentic AI in… |
@@ -1593,8 +1593,8 @@
 | [keon/awesome-physical-ai](https://github.com/keon/awesome-physical-ai) | 176 | 17 | — | A curated list of academic papers and resources on… |
 | [Yaepiii/C-LOAM](https://github.com/Yaepiii/C-LOAM) | 173 | 10 | C++ | A Compact LiDAR Odometry and Mapping with Dynamic… |
 | [addy1997/Robotics-Resources](https://github.com/addy1997/Robotics-Resources) | 172 | 26 | — | List of commonly used robotics libraries and packages |
-| [anthropics/claude-ai-mcp](https://github.com/anthropics/claude-ai-mcp) | 171 | 23 | — | — |
-| [UW-Lab/UWLab](https://github.com/UW-Lab/UWLab) | 164 | 22 | Python | — |
+| [anthropics/claude-ai-mcp](https://github.com/anthropics/claude-ai-mcp) | 171 | 23 | — | A code repository forked from anthropics/claude-ai-mcp. |
+| [UW-Lab/UWLab](https://github.com/UW-Lab/UWLab) | 164 | 22 | Python | Unable to access the repository content to provide a… |
 | [anesriad/Regression_ML_EndtoEnd](https://github.com/anesriad/Regression_ML_EndtoEnd) | 162 | 54 | Jupyter Notebook | Machine learning End to End project from data… |
 | [google/sec-gemini](https://github.com/google/sec-gemini) | 158 | 33 | Svelte | Sec-Gemini v1 is a cutting-edge AI model designed to… |
 | [lovisdotio/NanoBananaLoraDatasetGenerator](https://github.com/lovisdotio/NanoBananaLoraDatasetGenerator) | 154 | 25 | JavaScript | 🍌 Create LoRA training datasets for Flux 2, Z-Image,… |
@@ -1621,7 +1621,7 @@
 | [OneWave-AI/claude-skills](https://github.com/OneWave-AI/claude-skills) | 78 | 10 | Python | 100 Production-Ready Claude Code Skills - The most… |
 | [the-full-stack/fsdl-text-recognizer](https://github.com/the-full-stack/fsdl-text-recognizer) | 77 | 56 | Jupyter Notebook | Repo that generates… |
 | [google-marketing-solutions/copycat](https://github.com/google-marketing-solutions/copycat) | 77 | 18 | Python | Generate Google Search Ads that match your brand style. |
-| [EmptyBlueBox/DexLatent](https://github.com/EmptyBlueBox/DexLatent) | 73 | 8 | Python | — |
+| [EmptyBlueBox/DexLatent](https://github.com/EmptyBlueBox/DexLatent) | 73 | 8 | Python | DexLatent appears to be a Python-based project focused… |
 | [HumanCompatibleAI/tensor-trust](https://github.com/HumanCompatibleAI/tensor-trust) | 69 | 8 | Python | A prompt injection game to collect data for robust ML… |
 | [Azure-Samples/ally-legal-assistant](https://github.com/Azure-Samples/ally-legal-assistant) | 68 | 27 | JavaScript | Ally – AI Contract Assistant is a Word plugin using… |
 | [microsoft/edge-ai](https://github.com/microsoft/edge-ai) | 63 | 32 | HCL | Production-ready Infrastructure as Code, applications,… |
@@ -1630,27 +1630,27 @@
 | [khanh-atom/n8n-atom-fork](https://github.com/khanh-atom/n8n-atom-fork) | 54 | 13 | TypeScript | World's first n8n client that manage workflow… |
 | [zetic-ai/ZETIC_Melange_apps](https://github.com/zetic-ai/ZETIC_Melange_apps) | 52 | 7 | Swift | NPU powered On-device AI Mobile applications using… |
 | [azure-sdk/azure-sdk-for-js](https://github.com/azure-sdk/azure-sdk-for-js) | 51 | 26 | TypeScript | Microsoft Azure SDK for JavaScript (NodeJS & Browser) |
-| [google/ai_video_dubbing](https://github.com/google/ai_video_dubbing) | 51 | 8 | Python | — |
+| [google/ai_video_dubbing](https://github.com/google/ai_video_dubbing) | 51 | 8 | Python | This repository contains Google's AI video dubbing… |
 | [Robotics-STAR-Lab/C2-Explorer](https://github.com/Robotics-STAR-Lab/C2-Explorer) | 49 | 3 | — | A Flexible and Contiguous Decentralized Multi-UAV… |
-| [google/airdialogue](https://github.com/google/airdialogue) | 47 | 11 | Python | — |
+| [google/airdialogue](https://github.com/google/airdialogue) | 47 | 11 | Python | AirDialogue is a dataset and benchmark for… |
 | [atzberg/geo_neural_op](https://github.com/atzberg/geo_neural_op) | 44 | 9 | Python | Geometric Neural Operators (GNPs) for machine learning… |
 | [wilwaldon/Claude-Code-Frontend-Design-Toolkit](https://github.com/wilwaldon/Claude-Code-Frontend-Design-Toolkit) | 41 | 5 | — | Everything I've found that actually makes Claude Code… |
 | [Accenture/AIR](https://github.com/Accenture/AIR) | 38 | 14 | Python | A deep learning object detector framework written in… |
 | [synaptic-ai-consulting/crewai-LL-series](https://github.com/synaptic-ai-consulting/crewai-LL-series) | 36 | 13 | Python | Code Repository for CrewAI Lightning Lessons Series |
 | [Snapchat/SnapRHI](https://github.com/Snapchat/SnapRHI) | 35 | 4 | C++ | A lightweight, modern Render Hardware Interface (RHI)… |
 | [google/genie-for-sap-abap-ai-assistant-sample](https://github.com/google/genie-for-sap-abap-ai-assistant-sample) | 34 | 10 | ABAP | Genie for SAP enables AI based features (Code Explan,… |
-| [microsoft/physical-ai-toolchain](https://github.com/microsoft/physical-ai-toolchain) | 34 | 16 | TypeScript | — |
+| [microsoft/physical-ai-toolchain](https://github.com/microsoft/physical-ai-toolchain) | 34 | 16 | TypeScript | Unable to analyze repository content as no README or… |
 | [google/vertex-ai-nas](https://github.com/google/vertex-ai-nas) | 31 | 6 | Python | With Vertex AI NAS, you can search for optimal neural… |
 | [google/embardiment](https://github.com/google/embardiment) | 29 | 5 | C# | Packages and tools to enable EmBARDiment type of AI… |
 | [Paulooh007/drone-based-plant-monitoring-system](https://github.com/Paulooh007/drone-based-plant-monitoring-system) | 29 | 5 | Jupyter Notebook | Drone Based System for Plant Monitoring and Data… |
 | [jeantimex/splat](https://github.com/jeantimex/splat) | 28 | 5 | TypeScript | 3D Gaussian Splatting Viewer |
 | [yugaaank/ffflow](https://github.com/yugaaank/ffflow) | 24 | 2 | Rust | Ffflow is a lightweight CLI tool for building… |
-| [google/airio](https://github.com/google/airio) | 24 | 12 | Python | — |
+| [google/airio](https://github.com/google/airio) | 24 | 12 | Python | AirIO is a library for building scalable data… |
 | [MoAshour93/ConstructionAI](https://github.com/MoAshour93/ConstructionAI) | 24 | 7 | Jupyter Notebook | This repository contains projects developed to… |
 | [rudybear/lux](https://github.com/rudybear/lux) | 22 | 3 | Python | Lux — math-first shader language that compiles to… |
 | [oneapi-src/drone-navigation-inspection](https://github.com/oneapi-src/drone-navigation-inspection) | 19 | 8 | Python | AI Starter Kit for AI applications in Drone technology… |
 | [ruoxinx/OpenConstruction-Datasets](https://github.com/ruoxinx/OpenConstruction-Datasets) | 18 | 4 | — | 🏗️ OpenConstruction: A Systematic Synthesis of Open… |
-| [smartlawhub/Automated-GDPR-Compliance-Checking](https://github.com/smartlawhub/Automated-GDPR-Compliance-Checking) | 17 | 2 | Jupyter Notebook | — |
+| [smartlawhub/Automated-GDPR-Compliance-Checking](https://github.com/smartlawhub/Automated-GDPR-Compliance-Checking) | 17 | 2 | Jupyter Notebook | This repository contains automated tools for checking… |
 | [Digital-Process-Tools/claude-remember](https://github.com/Digital-Process-Tools/claude-remember) | 17 | 5 | Python | Persistent memory for Claude Code — identity, context,… |
 | [kekzl/imp](https://github.com/kekzl/imp) | 16 | 2 | Cuda | High-performance LLM inference engine in C++/CUDA for… |
 | [safetibase/safetibase](https://github.com/safetibase/safetibase) | 15 | 12 | JavaScript | SafetIbase is an award winning system to improve the… |
@@ -1658,18 +1658,18 @@
 | [Chris4212/Encodex](https://github.com/Chris4212/Encodex) | 13 | 1 | Python | Smart batch video encoding made simple. |
 | [cmusatyalab/steeleagle](https://github.com/cmusatyalab/steeleagle) | 11 | 11 | Python | Automated drone flights for visual inspection tasks |
 | [LexStack-AI/LexReviewer](https://github.com/LexStack-AI/LexReviewer) | 10 | 2 | Python | LexReviewer is an AI legal document review engine that… |
-| [jtoy/awesome-creativeai](https://github.com/jtoy/awesome-creativeai) | 9 | 4 | — | — |
+| [jtoy/awesome-creativeai](https://github.com/jtoy/awesome-creativeai) | 9 | 4 | — | This is a curated list of awesome Creative AI… |
 | [yh-yao/awesome-edge-ai-agents](https://github.com/yh-yao/awesome-edge-ai-agents) | 8 | 3 | — | Curated list of papers, frameworks, benchmarks, and… |
 | [aidancorrell/arcana](https://github.com/aidancorrell/arcana) | 7 | 1 | Rust | Agent-first data catalog. MCP server that gives AI… |
 | [Devision789/AI_ConstructionSiteMonitoring](https://github.com/Devision789/AI_ConstructionSiteMonitoring) | 6 | 2 | Python | AI_ConstructionSiteMonitoring |
 | [Vaquill-AI/awesome-legaltech](https://github.com/Vaquill-AI/awesome-legaltech) | 6 | 4 | — | A curated list of awesome LegalTech resources - open… |
 | [PatchedReality/Manifolder](https://github.com/PatchedReality/Manifolder) | 5 | 1 | JavaScript | A map explorer for the Open Metaverse AKA Open Spatial… |
-| [jeffreygroneberg/ai_scheduler](https://github.com/jeffreygroneberg/ai_scheduler) | 5 | 2 | Python | — |
+| [jeffreygroneberg/ai_scheduler](https://github.com/jeffreygroneberg/ai_scheduler) | 5 | 2 | Python | Unable to analyze repository content as no README or… |
 | [PatchedReality/ManifolderMCP](https://github.com/PatchedReality/ManifolderMCP) | 5 | 2 | TypeScript | MCP server exposing Open Metaverse Fabric editing… |
 | [zetic-ai/melange_heimdall](https://github.com/zetic-ai/melange_heimdall) | 5 | 2 | Swift | An on-device guardian for LLM API calls — safety,… |
 | [CelestialCreator/mtp-lm](https://github.com/CelestialCreator/mtp-lm) | 4 | 2 | Python | Source code to accompany research paper on training… |
 | [jmedia65/awesome-ai-marketing](https://github.com/jmedia65/awesome-ai-marketing) | 2 | 6 | — | A curated collection of AI marketing tools and prompts… |
-| [arplaboratory/Autonomous-Drone-Inspection-with-DRL](https://github.com/arplaboratory/Autonomous-Drone-Inspection-with-DRL) | 2 | 1 | Python | — |
+| [arplaboratory/Autonomous-Drone-Inspection-with-DRL](https://github.com/arplaboratory/Autonomous-Drone-Inspection-with-DRL) | 2 | 1 | Python | This repository implements an autonomous drone… |
 | [coderextreme/JSONvirse](https://github.com/coderextreme/JSONvirse) | 1 | 1 | JavaScript | Initially, a multiuser system for research, design,… |
 | [Ahmed-Islam-AI/PPE-Detection-for-Construction-site-workers](https://github.com/Ahmed-Islam-AI/PPE-Detection-for-Construction-site-workers) | 1 | 1 | Jupyter Notebook | AI-powered safety monitoring system for construction… |
 | [shimmyshimmer/sbeta](https://github.com/shimmyshimmer/sbeta) | — | 46 | Jupyter Notebook | Unsloth Studio |
@@ -1693,7 +1693,7 @@
 
 ## Top Languages
 
-- **JavaScript**: 1 repos
+- **Jupyter Notebook**: 1 repos
 
 ## Status
 
