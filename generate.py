@@ -153,11 +153,11 @@ def _personal_repos_table(repos: list[dict]) -> str:
     for repo in repos:
         owner = repo.get("owner", "")
         name = repo.get("name", "")
+        owner, name, url = _canonical_repo_identity(owner, name, repo.get("github_url"))
         full_name = f"{owner}/{name}"
         lang = repo.get("primary_language") or "—"
         desc = _truncate((repo.get("description") or "—").replace("|", "-"), 60)
         pushed = (repo.get("your_last_push_at") or repo.get("updated_at") or "")[:10] or "—"
-        url = repo.get("github_url") or f"https://github.com/{full_name}"
         rows.append(f"| [{full_name}]({url}) | {desc} | {lang} | {pushed} |")
     return "\n".join(rows)
 
