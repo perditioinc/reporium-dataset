@@ -1877,7 +1877,7 @@
 
 ## Top Languages
 
-- **Jupyter Notebook**: 1 repos
+- **Python**: 1 repos
 
 ## Status
 
