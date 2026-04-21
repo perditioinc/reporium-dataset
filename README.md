@@ -36,7 +36,7 @@
 | [perditioinc/reporium-audit](https://github.com/perditioinc/reporium-audit) | Nightly automated audit of the entire Reporium platform —… | Python | 2026-03-25 |
 | [perditioinc/reporium-scoring](https://github.com/perditioinc/reporium-scoring) | Score any GitHub repo 0-100 — README, activity, community,… | Python | 2026-04-19 |
 | [perditioinc/reporium-events](https://github.com/perditioinc/reporium-events) | Event schema definitions and Python publisher client for… | Python | 2026-03-23 |
-| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-04-19 |
+| [perditioinc/reporium-mcp](https://github.com/perditioinc/reporium-mcp) | MCP server for Reporium — query your AI repo library from… | Python | 2026-04-20 |
 | [perditioinc/forksync](https://github.com/perditioinc/forksync) | Tooling ⚙️: Keep your GitHub forks updated automatically.… | Python | 2026-03-23 |
 | [perditioinc/reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) | Local data ingestion and analysis scripts for Reporium :… | Python | 2026-03-26 |
 | [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db) | Nightly GitHub metadata sync — powers reporium.com.… | Python | 2026-03-24 |
