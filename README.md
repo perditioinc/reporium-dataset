@@ -1981,7 +1981,7 @@
 - **Rust**: 62 repos
 - **C**: 39 repos
 - **C#**: 29 repos
-- **HTML**: 21 repos
+- **Java**: 21 repos
 
 ## Status
 
