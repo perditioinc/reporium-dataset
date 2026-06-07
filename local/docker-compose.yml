@@ -1,0 +1,49 @@
+# Local OSS substrate for reporium-dataset.
+#
+# Cloud -> OSS map:
+#   reporium-api (hosted HTTP service)  -> api-stub (stdlib HTTP server, this repo, $0)
+#   reporium-db raw files on GitHub     -> not contacted; the smoke drives the
+#                                          PRIMARY api code path so no network egress.
+#
+# Everything is additive and local-only. No production endpoints, no secrets.
+
+services:
+  api-stub:
+    image: python:3.11-slim
+    container_name: reporium-dataset-api-stub
+    working_dir: /stub
+    environment:
+      STUB_HOST: "0.0.0.0"
+      STUB_PORT: "8000"
+      LOCAL_SEED: "/seed/dataset.json"
+    volumes:
+      - ./stub:/stub:ro
+      - ./seed:/seed:ro
+    command: ["python", "/stub/api_stub.py"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0) if urllib.request.urlopen('http://localhost:8000/health').status==200 else sys.exit(1)"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+      start_period: 2s
+
+  smoke:
+    image: python:3.11-slim
+    container_name: reporium-dataset-smoke
+    working_dir: /app
+    depends_on:
+      api-stub:
+        condition: service_healthy
+    environment:
+      # Env-pointed substitution: real generate.py, local stub URL.
+      REPORIUM_API_URL: "http://api-stub:8000"
+      LOCAL_SEED: "/seed/dataset.json"
+      SMOKE_OUT: "/out"
+    volumes:
+      - ..:/app:ro            # repo source mounted READ-ONLY
+      - ./seed:/seed:ro
+      - ./smoke.py:/smoke.py:ro
+    command:
+      - bash
+      - -c
+      - "pip install --quiet --no-cache-dir -r /app/requirements.txt && python /smoke.py"
