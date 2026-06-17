@@ -1,0 +1,4 @@
+Makefile text eol=lf
+local/Makefile text eol=lf
+local/*.py text eol=lf
+local/stub/*.py text eol=lf
