@@ -43,7 +43,7 @@
 | [perditioinc/reporium-ingestion](https://github.com/perditioinc/reporium-ingestion) | Local data ingestion and analysis scripts for Reporium :… | Python | 2026-05-12 |
 | [perditioinc/reporium-db](https://github.com/perditioinc/reporium-db) | Nightly GitHub metadata sync — powers reporium.com.… | Python | 2026-05-17 |
 | [perditioinc/portfolio](https://github.com/perditioinc/portfolio) | Portfolio of AI discovery tools, developer tooling, and… | Python | 2026-05-18 |
-| [perditioinc/git-devkit](https://github.com/perditioinc/git-devkit) | Standalone GitHub tooling: badges, GitHub client, file +… | Python | 2026-09-03 |
+| [perditioinc/git-devkit](https://github.com/perditioinc/git-devkit) | Standalone GitHub tooling: badges, GitHub client, file +… | Python | 2026-09-04 |
 | [perditioinc/reporium-roadmap](https://github.com/perditioinc/reporium-roadmap) | Public product roadmap for reporium.com — auto-updated… | Python | 2026-05-18 |
 | [perditioinc/reporium-scoring](https://github.com/perditioinc/reporium-scoring) | Score any GitHub repo 0-100 for the Reporium platform —… | Python | 2026-04-10 |
 | [perditioinc/reporium-system-design](https://github.com/perditioinc/reporium-system-design) | Architecture decisions, tradeoffs, CAP theorem analysis,… | Python | 2026-05-03 |
